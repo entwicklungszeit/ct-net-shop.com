@@ -1,0 +1,338 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout>
+  <main class="min-h-screen bg-slate-950 text-slate-100">
+    <section class="relative isolate px-6 py-20 sm:px-8 lg:px-12">
+      <div
+        class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.18),transparent_60%),radial-gradient(circle_at_bottom,rgba(129,140,248,0.18),transparent_55%)]"
+      >
+      </div>
+      <div class="mx-auto max-w-5xl lg:grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-16">
+        <!-- Intro & address -->
+        <div class="space-y-10">
+          <header class="space-y-4">
+            <p
+              class="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/60 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-sky-300"
+            >
+              Kontakt
+            </p>
+            <h1 class="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">
+              Smart. Stabil. Leistungsstark.
+            </h1>
+            <p class="max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
+              Erzählen Sie uns von Ihrem Projekt – Photovoltaik, Netzwerktechnik oder
+              Hausautomation. Wir melden uns zeitnah mit einer individuellen Antwort.
+            </p>
+          </header>
+
+          <div
+            class="grid gap-6 rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.9)] backdrop-blur-md sm:grid-cols-2 sm:p-8"
+          >
+            <div class="space-y-4">
+              <h2 class="text-sm font-semibold tracking-[0.18em] text-slate-400">Anschrift</h2>
+              <div class="text-sm leading-relaxed text-slate-100">
+                <p class="font-medium">Rico Pleißner</p>
+                <p>F 5</p>
+                <p>04523 Elstertrebnitz</p>
+              </div>
+            </div>
+
+            <dl class="space-y-5 text-sm text-slate-200">
+              <div class="space-y-1">
+                <dt class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                  Mobil
+                </dt>
+                <dd>
+                  <a
+                    href="tel:+491742457273"
+                    class="inline-flex items-center gap-2 text-sky-300 transition hover:text-sky-200"
+                  >
+                    <span>+49&nbsp;174&nbsp;24&nbsp;57&nbsp;273</span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="space-y-1">
+                <dt class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Fax</dt>
+                <dd class="text-slate-100">+49&nbsp;34296&nbsp;/&nbsp;92&nbsp;49&nbsp;82</dd>
+              </div>
+
+              <div class="space-y-1">
+                <dt class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                  E-Mail
+                </dt>
+                <dd>
+                  <a
+                    href="mailto:info@ct-net-shop.com"
+                    class="inline-flex items-center gap-2 text-sky-300 underline-offset-4 transition hover:text-sky-200 hover:underline"
+                  >
+                    info@ct-net-shop.com
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <div class="mt-12 lg:mt-0">
+          <form
+            class="space-y-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-6 shadow-[0_18px_50px_rgba(15,23,42,0.9)] backdrop-blur-md sm:p-8"
+          >
+            <h2 class="text-lg font-medium tracking-tight text-slate-50">
+              Schreiben Sie uns eine Nachricht
+            </h2>
+            <p class="text-xs text-slate-400">
+              Felder mit
+              <span class="text-rose-400">*</span>
+              sind Pflichtfelder.
+            </p>
+
+            <!-- Company -->
+            <div class="space-y-2">
+              <label for="company" class="block text-xs font-medium tracking-wide text-slate-200">
+                Firma
+              </label>
+              <input
+                id="company"
+                name="company"
+                type="text"
+                autocomplete="organization"
+                class="block w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 shadow-inner outline-none ring-0 transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/60"
+              />
+            </div>
+
+            <!-- Name -->
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="space-y-2">
+                <label
+                  for="firstname"
+                  class="flex items-center gap-1 text-xs font-medium tracking-wide text-slate-200"
+                >
+                  Vorname
+                  <span class="text-rose-400">*</span>
+                </label>
+                <input
+                  id="firstname"
+                  name="firstname"
+                  type="text"
+                  autocomplete="given-name"
+                  required
+                  class="block w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 shadow-inner outline-none ring-0 transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/60"
+                />
+              </div>
+
+              <div class="space-y-2">
+                <label
+                  for="lastname"
+                  class="flex items-center gap-1 text-xs font-medium tracking-wide text-slate-200"
+                >
+                  Nachname
+                  <span class="text-rose-400">*</span>
+                </label>
+                <input
+                  id="lastname"
+                  name="lastname"
+                  type="text"
+                  autocomplete="family-name"
+                  required
+                  class="block w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 shadow-inner outline-none ring-0 transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/60"
+                />
+              </div>
+            </div>
+
+            <!-- Address -->
+            <fieldset class="space-y-4 rounded-xl border border-slate-800/70 bg-slate-950/30 p-4">
+              <legend class="px-1 text-xs font-medium uppercase tracking-[0.22em] text-slate-400">
+                Adresse
+                <span class="text-rose-400">*</span>
+              </legend>
+              <div class="space-y-3">
+                <div class="space-y-2">
+                  <label
+                    for="street"
+                    class="block text-xs font-medium tracking-wide text-slate-200"
+                  >
+                    Straße
+                  </label>
+                  <input
+                    id="street"
+                    name="street"
+                    type="text"
+                    required
+                    class="block w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 shadow-inner outline-none ring-0 transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/60"
+                  />
+                </div>
+
+                <div class="grid gap-3 grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+                  <div class="space-y-2">
+                    <label
+                      for="streetNumber"
+                      class="block text-xs font-medium tracking-wide text-slate-200"
+                    >
+                      Nr.
+                    </label>
+                    <input
+                      id="streetNumber"
+                      name="streetNumber"
+                      type="text"
+                      required
+                      class="block w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 shadow-inner outline-none ring-0 transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/60"
+                    />
+                  </div>
+
+                  <div class="space-y-2">
+                    <label for="zip" class="block text-xs font-medium tracking-wide text-slate-200">
+                      PLZ
+                    </label>
+                    <input
+                      id="zip"
+                      name="zip"
+                      type="text"
+                      inputmode="numeric"
+                      required
+                      class="block w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 shadow-inner outline-none ring-0 transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/60"
+                    />
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Contact information -->
+            <fieldset class="space-y-4 rounded-xl border border-slate-800/70 bg-slate-950/30 p-4">
+              <legend class="px-1 text-xs font-medium uppercase tracking-[0.22em] text-slate-400">
+                Kontaktinformationen
+                <span class="text-rose-400">*</span>
+              </legend>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div class="space-y-2">
+                  <label for="phone" class="block text-xs font-medium tracking-wide text-slate-200">
+                    Telefon
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    autocomplete="tel"
+                    required
+                    class="block w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 shadow-inner outline-none ring-0 transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/60"
+                  />
+                </div>
+
+                <div class="space-y-2">
+                  <label for="email" class="block text-xs font-medium tracking-wide text-slate-200">
+                    E-Mail
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    class="block w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 shadow-inner outline-none ring-0 transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/60"
+                  />
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Contact questions -->
+            <fieldset class="space-y-3">
+              <legend class="text-xs font-medium uppercase tracking-[0.22em] text-slate-400">
+                Kontaktwunsch
+              </legend>
+
+              <div class="space-y-2 text-xs text-slate-100">
+                <label
+                  class="flex cursor-pointer items-start gap-3 rounded-xl border border-slate-800/80 bg-slate-950/40 px-3 py-2 transition hover:border-sky-500/70 hover:bg-slate-900/60"
+                >
+                  <input
+                    type="checkbox"
+                    name="contactQuestions"
+                    value="callback"
+                    class="mt-1 h-4 w-4 rounded border-slate-600 bg-slate-900 text-sky-500 focus:ring-sky-500"
+                  />
+                  <span class="leading-relaxed"> Bitte rufen Sie mich telefonisch zurück. </span>
+                </label>
+
+                <label
+                  class="flex cursor-pointer items-start gap-3 rounded-xl border border-slate-800/80 bg-slate-950/40 px-3 py-2 transition hover:border-sky-500/70 hover:bg-slate-900/60"
+                >
+                  <input
+                    type="checkbox"
+                    name="contactQuestions"
+                    value="meeting"
+                    class="mt-1 h-4 w-4 rounded border-slate-600 bg-slate-900 text-sky-500 focus:ring-sky-500"
+                  />
+                  <span class="leading-relaxed">
+                    Ich möchte einen persönlichen Vor-Ort-Termin vereinbaren.
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Contact reason -->
+            <div class="space-y-2">
+              <label
+                for="reason"
+                class="flex items-center gap-1 text-xs font-medium tracking-wide text-slate-200"
+              >
+                Kontaktgrund
+                <span class="text-rose-400">*</span>
+              </label>
+              <select
+                id="reason"
+                name="reason"
+                required
+                class="block w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 outline-none ring-0 transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/60"
+              >
+                <option value="">Bitte wählen…</option>
+                <option value="photovoltaik">Anfrage Photovoltaik</option>
+                <option value="automation">Anfrage Hausautomation / KNX</option>
+                <option value="it-services">Anfrage IT- & Elektronikdienstleistungen</option>
+                <option value="support">Technische Unterstützung / Support</option>
+                <option value="other">Sonstiges Anliegen</option>
+              </select>
+            </div>
+
+            <!-- Message -->
+            <div class="space-y-2">
+              <label
+                for="message"
+                class="flex items-center gap-1 text-xs font-medium tracking-wide text-slate-200"
+              >
+                Nachricht
+                <span class="text-rose-400">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows="5"
+                class="block w-full resize-none rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 shadow-inner outline-none ring-0 transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/60"
+                placeholder="Beschreiben Sie Ihr Projekt, Ihre Fragen oder Ihr Anliegen so konkret wie möglich."
+              ></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div
+              class="flex flex-col gap-3 border-t border-slate-800/80 pt-4 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <p class="text-[11px] leading-relaxed text-slate-500">
+                Mit dem Absenden Ihrer Nachricht erklären Sie sich damit einverstanden, dass wir
+                Ihre Angaben zur Beantwortung Ihrer Anfrage verwenden.
+              </p>
+              <button
+                type="submit"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-sky-500 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.24em] text-slate-950 shadow-[0_12px_35px_rgba(56,189,248,0.55)] transition hover:bg-sky-400 hover:shadow-[0_16px_40px_rgba(56,189,248,0.75)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              >
+                Nachricht senden
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
