@@ -5,6 +5,7 @@
 - This is the website of https://www.ct-net-shop.com/
 - It offers for IT- and electronic services
 - Slogan: Smart, Stable, Powerful, Since 2009
+- The website is in German
 
 ## CT-Net
 
