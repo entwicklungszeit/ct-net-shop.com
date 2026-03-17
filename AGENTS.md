@@ -4,6 +4,7 @@
 
 - This is the website of https://www.ct-net-shop.com/
 - It offers for IT- and electronic services
+- Slogan: Smart, Stable, Powerful, Since 2009
 
 ## CT-Net
 
@@ -35,6 +36,10 @@
 - [Vue.js](https://vuejs.org/llms.txt)
 - [Astro](https://astro.build/llms.txt)
 - [Tailwind](https://tailwindcss.com/)
+
+## Commands
+
+- Run `pnpm dev` to start the development server
 
 ## Git Guideline
 
