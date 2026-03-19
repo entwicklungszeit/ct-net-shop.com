@@ -1,0 +1,151 @@
+---
+import CTNBall from '../assets/CTN_Ball.svg'
+
+const navItems: { label: string; href: string }[] = []
+---
+
+<header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
+  <div class="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+    <a href="/" class="flex shrink-0 items-center gap-2" aria-label="CT-Net Startseite">
+      <img src={CTNBall.src} alt="CT-Net" class="h-8 w-8" width="32" height="32" />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-8 lg:flex" aria-label="Hauptmenü">
+      {
+        navItems.map(item => (
+          <a
+            href={item.href}
+            class="text-sm font-medium text-slate-700 transition-colors hover:text-sky-600"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Desktop CTA -->
+    <a
+      href="/kontakt"
+      class="hidden shrink-0 rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 lg:inline-block"
+    >
+      Kontakt aufnehmen
+    </a>
+
+    <!-- Mobile: hamburger -->
+    <button
+      type="button"
+      class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 lg:hidden"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="drawer-nav"
+      data-drawer-toggle
+    >
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div
+  id="drawer-nav"
+  class="pointer-events-none fixed inset-0 z-40 lg:hidden data-drawer-open:pointer-events-auto"
+  aria-hidden="true"
+  data-drawer
+>
+  <div
+    class="absolute inset-0 bg-slate-900/40 opacity-0 transition-opacity duration-300 data-visible:opacity-100"
+    data-drawer-overlay
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="absolute right-0 top-0 flex h-full w-full max-w-xs flex-col gap-6 border-l border-slate-200 bg-white p-6 shadow-xl transition-transform duration-300 ease-out translate-x-full data-visible:translate-x-0 sm:max-w-sm"
+    data-drawer-panel
+  >
+    <div class="flex items-center justify-between">
+      <button
+        type="button"
+        class="flex h-10 w-10 items-center justify-center rounded-lg text-slate-600 transition hover:bg-slate-100"
+        aria-label="Menü schließen"
+        data-drawer-close
+      >
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-1 flex-col gap-1" aria-label="Mobile Menü">
+      {
+        navItems.map(item => (
+          <a
+            href={item.href}
+            class="rounded-lg px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-50 hover:text-sky-600"
+            data-drawer-close
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <a
+      href="/kontakt"
+      class="rounded-lg bg-sky-500 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-sky-400"
+      data-drawer-close
+    >
+      Kontakt aufnehmen
+    </a>
+  </div>
+</div>
+
+<script>
+  function initDrawer() {
+    const drawer = document.querySelector<HTMLElement>('[data-drawer]')
+    const overlay = document.querySelector<HTMLElement>('[data-drawer-overlay]')
+    const panel = document.querySelector<HTMLElement>('[data-drawer-panel]')
+    const toggle = document.querySelector<HTMLElement>('[data-drawer-toggle]')
+    const closeButtons = document.querySelectorAll<HTMLElement>('[data-drawer-close]')
+
+    if (!drawer || !overlay || !panel || !toggle) return
+
+    function open() {
+      drawer?.setAttribute('aria-hidden', 'false')
+      drawer?.setAttribute('data-drawer-open', '')
+      overlay?.setAttribute('data-visible', '')
+      panel?.setAttribute('data-visible', '')
+      toggle?.setAttribute('aria-expanded', 'true')
+      document.body.style.overflow = 'hidden'
+    }
+
+    function close() {
+      drawer?.setAttribute('aria-hidden', 'true')
+      drawer?.removeAttribute('data-drawer-open')
+      overlay?.removeAttribute('data-visible')
+      panel?.removeAttribute('data-visible')
+      toggle?.setAttribute('aria-expanded', 'false')
+      document.body.style.overflow = ''
+    }
+
+    function toggleDrawer() {
+      const isOpen = overlay?.hasAttribute('data-visible')
+      if (isOpen) close()
+      else open()
+    }
+
+    toggle.addEventListener('click', toggleDrawer)
+    overlay?.addEventListener('click', close)
+    closeButtons.forEach(el => el.addEventListener('click', close))
+  }
+
+  initDrawer()
+</script>
