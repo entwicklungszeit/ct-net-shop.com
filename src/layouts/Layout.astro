@@ -11,11 +11,15 @@ import '../styles/global.css'
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>CT-Net-Shop | Willkommen</title>
+    <script is:inline>
+      const stored = localStorage.theme
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      const isDark = stored === 'dark' || (!stored && prefersDark)
+      document.documentElement.classList.toggle('dark', isDark)
+    </script>
   </head>
-  <body>
+  <body class="dark:bg-slate-950">
     <TopNavigation />
-    <div class="pt-14">
-      <slot />
-    </div>
+    <slot />
   </body>
 </html>
