@@ -1,0 +1,59 @@
+---
+import { withBase } from '../utils/url'
+
+type FooterLink = {
+  label: string
+  href: string
+  ariaLabel?: string
+}
+
+const legalLinks: FooterLink[] = [
+  { label: 'Impressum', href: '/impressum' },
+  { label: 'Datenschutz', href: '/datenschutz' }
+]
+
+// Placeholder for future social media accounts.
+const socialLinks: FooterLink[] = []
+---
+
+<footer
+  class="mt-16 border-t border-slate-200 bg-slate-50/80 dark:border-slate-800 dark:bg-slate-950/70"
+>
+  <div
+    class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-8 text-sm text-slate-600 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8 dark:text-slate-300"
+  >
+    <p class="text-xs sm:text-sm">Smart, Stable, Powerful, Since 2009</p>
+
+    <nav aria-label="Rechtliches" class="flex flex-wrap items-center gap-4 sm:gap-6">
+      {
+        legalLinks.map(link => (
+          <a
+            href={withBase(link.href)}
+            aria-label={link.ariaLabel ?? link.label}
+            class="font-medium text-slate-700 transition-colors hover:text-sky-600 dark:text-slate-200 dark:hover:text-sky-400"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    {
+      socialLinks.length > 0 && (
+        <nav aria-label="Social Media" class="flex flex-wrap items-center gap-4 sm:gap-6">
+          {socialLinks.map(link => (
+            <a
+              href={link.href}
+              aria-label={link.ariaLabel ?? link.label}
+              class="font-medium text-slate-700 transition-colors hover:text-sky-600 dark:text-slate-200 dark:hover:text-sky-400"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      )
+    }
+  </div>
+</footer>
