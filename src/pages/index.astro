@@ -1,11 +1,157 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro'
+import { withBase } from '../utils/url'
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const services = [
+  {
+    title: 'KNX',
+    href: '/knx',
+    description:
+      'Intelligente Hausautomation mit klarer Planung, professioneller Installation und sauberer Inbetriebnahme.'
+  },
+  {
+    title: 'Photovoltaik',
+    href: '/photovoltaik',
+    description:
+      'Ganzheitliche PV-Loesungen von der ersten Idee bis zur Montage fuer private und gewerbliche Objekte.'
+  }
+]
+
+const processSteps = [
+  'Erstgespraech',
+  'individuelles Angebot erstellt',
+  'Angebot pruefen durch Kunden',
+  'Auftragsbestaetigung durch uns',
+  'Anzahlung % alles ueber 2K - 70% da 2/3 Materialeinsatz',
+  'Materialbestellung',
+  'Vorlaufzeit ca. 4-6 Wochen'
+]
 ---
 
 <Layout>
-	<Welcome />
+  <main class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <section class="relative isolate overflow-hidden">
+      <div class="absolute inset-0 -z-20">
+        <img
+          src={withBase('/Hintergrund.svg')}
+          alt=""
+          aria-hidden="true"
+          class="h-full w-full object-cover object-center"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+      <div
+        class="absolute inset-0 -z-10 bg-[linear-gradient(108deg,rgba(2,6,23,0.84)_12%,rgba(2,6,23,0.56)_46%,rgba(2,6,23,0.86)_100%)]"
+      >
+      </div>
+      <div class="mx-auto flex min-h-[78svh] w-full max-w-7xl items-center px-6 py-24 sm:px-8 lg:px-12">
+        <div class="max-w-3xl space-y-8">
+          <p
+            class="inline-flex rounded-full border border-sky-300/40 bg-sky-500/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-sky-100"
+          >
+            Smart, Stable, Powerful, Since 2009
+          </p>
+          <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+            CT-Net fuer IT-, Elektro- und Zukunftsprojekte.
+          </h1>
+          <p class="max-w-2xl text-base leading-relaxed text-slate-100 sm:text-lg">
+            Ihr IT und E-Technik Partner fuer Leipzig und Umgebung, sogar darueber hinaus.
+          </p>
+          <div class="flex flex-wrap items-center gap-4">
+            <a
+              href={withBase('/kontakt')}
+              class="inline-flex items-center justify-center rounded-full bg-sky-500 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-[0_16px_40px_rgba(14,165,233,0.45)] transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+            >
+              Kontakt aufnehmen
+            </a>
+            <span class="text-sm uppercase tracking-[0.14em] text-slate-200/95">
+              Planung, Montage, Betreuung
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto w-full max-w-7xl px-6 py-20 sm:px-8 lg:px-12">
+      <div class="mb-10 space-y-3">
+        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300">
+          Dienstleistungen
+        </p>
+        <h2 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl">
+          Technische Kompetenz in zwei starken Bereichen
+        </h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        {
+          services.map((service, index) => (
+            <a
+              href={withBase(service.href)}
+              class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_38px_rgba(15,23,42,0.08)] transition hover:-translate-y-1 hover:border-sky-300 hover:shadow-[0_22px_45px_rgba(14,165,233,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 dark:border-slate-800 dark:bg-slate-900/85 dark:hover:border-sky-500/70"
+            >
+              <div class="absolute right-5 top-5 text-xs font-semibold tracking-[0.2em] text-slate-400">
+                0{index + 1}
+              </div>
+              <h3 class="text-2xl font-semibold text-slate-900 transition group-hover:text-sky-600 dark:text-slate-50 dark:group-hover:text-sky-300">
+                {service.title}
+              </h3>
+              <p class="mt-4 max-w-[36ch] text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                {service.description}
+              </p>
+              <span
+                class="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-600 dark:text-sky-300"
+              >
+                Mehr erfahren
+                <span aria-hidden="true" class="transition group-hover:translate-x-1">-></span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="relative isolate overflow-hidden border-y border-slate-200 bg-white py-20 dark:border-slate-800 dark:bg-slate-900/40">
+      <div
+        class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_10%_20%,rgba(14,165,233,0.16),transparent_42%),radial-gradient(circle_at_94%_82%,rgba(251,191,36,0.14),transparent_40%)]"
+      >
+      </div>
+      <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div class="mb-12 max-w-3xl space-y-4">
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300">
+            Transparentes Vorgehen fuer Ihr Vorhaben
+          </p>
+          <h2 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl">
+            Von der ersten Anfrage bis zur klaren Umsetzung
+          </h2>
+        </div>
+        <ol class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {
+            processSteps.map((step, index) => (
+              <li class="rounded-2xl border border-slate-200 bg-slate-50/85 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/80">
+                <div class="mb-3 flex items-center gap-3">
+                  <span
+                    class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-500 text-xs font-bold text-slate-950"
+                  >
+                    {index + 1}
+                  </span>
+                  <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                    Schritt {index + 1}
+                  </span>
+                </div>
+                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-200">{step}</p>
+              </li>
+            ))
+          }
+        </ol>
+        <div class="mt-12">
+          <a
+            href={withBase('/kontakt')}
+            class="inline-flex items-center justify-center rounded-full bg-slate-900 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
+          >
+            Jetzt Projekt gemeinsam besprechen
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
