@@ -18,13 +18,39 @@ const services = [
 ]
 
 const processSteps = [
-  'Erstgespräch',
-  'individuelles Angebot erstellt',
-  'Angebot prüfen durch Kunden',
-  'Auftragsbestätigung durch uns',
-  'Anzahlung % alles über 2K - 70% da 2/3 Materialeinsatz',
-  'Materialbestellung',
-  'Vorlaufzeit ca. 4-6 Wochen'
+  {
+    title: 'Unverbindliches Erstgespräch',
+    description:
+      'Wir nehmen uns Zeit für Ihr Anliegen, analysieren die Anforderungen und klären offene Fragen – direkt und ohne Umwege.'
+  },
+  {
+    title: 'Individuelles Angebot',
+    description:
+      'Auf Basis Ihrer Anforderungen erstellen wir ein präzises, transparentes Angebot mit klarer Leistungsabgrenzung.'
+  },
+  {
+    title: 'Angebotsprüfung',
+    description: 'Sie prüfen das Angebot in Ruhe. Rückfragen beantworten wir kompetent und persönlich – jederzeit.'
+  },
+  {
+    title: 'Schriftliche Auftragsbestätigung',
+    description: 'Nach Ihrer Freigabe bestätigen wir den Auftrag verbindlich und nachvollziehbar dokumentiert.'
+  },
+  {
+    title: 'Anzahlung',
+    description:
+      'Bei Projekten ab 2.000 € wird eine Anzahlung von 70 % fällig – kalkuliert auf Basis des Materialeinsatzes.'
+  },
+  {
+    title: 'Materialbestellung & Beschaffung',
+    description:
+      'Alle benötigten Komponenten werden sorgfältig und qualitätsgeprüft bei unseren Fachlieferanten beschafft.'
+  },
+  {
+    title: 'Vorlaufzeit ca. 4–6 Wochen',
+    description:
+      'Für eine planmäßige Durchführung kalkulieren wir eine Vorlaufzeit von ca. 4–6 Wochen ein. Wir halten Sie stets informiert.'
+  }
 ]
 ---
 
@@ -138,7 +164,8 @@ const processSteps = [
                     Schritt {index + 1}
                   </span>
                 </div>
-                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-200">{step}</p>
+                <p class="text-sm font-semibold leading-snug text-slate-800 dark:text-slate-100">{step.title}</p>
+                <p class="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{step.description}</p>
               </li>
             ))
           }
