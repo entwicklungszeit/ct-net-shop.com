@@ -1,7 +1,20 @@
 ---
 import { withBase } from '../utils/url'
 
-const navItems: { label: string; href: string }[] = []
+const services = [
+  {
+    title: 'KNX',
+    href: '/knx',
+    description:
+      'Intelligente Hausautomation mit klarer Planung, professioneller Installation und sauberer Inbetriebnahme.'
+  },
+  {
+    title: 'Photovoltaik',
+    href: '/photovoltaik',
+    description:
+      'Ganzheitliche PV-Lösungen von der ersten Idee bis zur Montage für private und gewerbliche Objekte.'
+  }
+]
 ---
 
 <header
@@ -14,16 +27,25 @@ const navItems: { label: string; href: string }[] = []
 
     <!-- Desktop nav -->
     <nav class="hidden items-center gap-8 lg:flex" aria-label="Hauptmenü">
-      {
-        navItems.map(item => (
-          <a
-            href={withBase(item.href)}
-            class="text-sm font-medium text-slate-700 transition-colors hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400"
-          >
-            {item.label}
-          </a>
-        ))
-      }
+      <button
+        type="button"
+        data-megamenu-toggle
+        aria-expanded="false"
+        aria-controls="megamenu-panel"
+        class="group flex items-center gap-1.5 text-sm font-medium text-slate-700 transition-colors hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400"
+      >
+        Dienstleistungen
+        <svg
+          class="h-4 w-4 transition-transform duration-200 group-data-open:rotate-180"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </button>
     </nav>
 
     <div class="hidden items-center gap-3 lg:flex">
@@ -84,6 +106,49 @@ const navItems: { label: string; href: string }[] = []
   </div>
 </header>
 
+<!-- Mega-menu panel (desktop) -->
+<div
+  id="megamenu-panel"
+  data-megamenu
+  aria-hidden="true"
+  class="pointer-events-none fixed top-14 left-0 right-0 z-40 hidden border-b border-slate-200/80 bg-white/95 opacity-0 backdrop-blur-md transition-[opacity,transform] duration-200 ease-out -translate-y-1 dark:border-slate-800 dark:bg-slate-950/95 lg:block data-visible:pointer-events-auto data-visible:translate-y-0 data-visible:opacity-100"
+>
+  <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <p
+      class="mb-5 text-[10px] font-semibold uppercase tracking-[0.28em] text-sky-600 dark:text-sky-400"
+    >
+      Dienstleistungen
+    </p>
+    <div class="grid gap-4 md:grid-cols-2">
+      {
+        services.map((service, index) => (
+          <a
+            href={withBase(service.href)}
+            data-megamenu-close
+            class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_8px_24px_rgba(15,23,42,0.07)] transition hover:-translate-y-0.5 hover:border-sky-300 hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 dark:border-slate-800 dark:bg-slate-900/85 dark:hover:border-sky-500/70"
+          >
+            <div class="absolute right-4 top-4 text-xs font-semibold tracking-[0.2em] text-slate-300 dark:text-slate-600">
+              0{index + 1}
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 transition group-hover:text-sky-600 dark:text-slate-50 dark:group-hover:text-sky-300">
+              {service.title}
+            </h3>
+            <p class="mt-2 max-w-[38ch] text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+              {service.description}
+            </p>
+            <span class="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-sky-600 dark:text-sky-400">
+              Mehr erfahren
+              <span aria-hidden="true" class="transition group-hover:translate-x-1">
+                -&gt;
+              </span>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
 <!-- Mobile drawer -->
 <div
   id="drawer-nav"
@@ -118,17 +183,48 @@ const navItems: { label: string; href: string }[] = []
       </button>
     </div>
     <nav class="flex flex-1 flex-col gap-1" aria-label="Mobile Menü">
-      {
-        navItems.map(item => (
-          <a
-            href={withBase(item.href)}
-            class="rounded-lg px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-50 hover:text-sky-600 dark:text-slate-200 dark:hover:bg-slate-800"
-            data-drawer-close
+      <!-- Dienstleistungen accordion -->
+      <div>
+        <button
+          type="button"
+          data-drawer-services-toggle
+          aria-expanded="false"
+          aria-controls="drawer-services-panel"
+          class="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-50 hover:text-sky-600 dark:text-slate-200 dark:hover:bg-slate-800"
+        >
+          Dienstleistungen
+          <svg
+            class="h-4 w-4 shrink-0 transition-transform duration-200 data-open:rotate-180"
+            data-drawer-services-chevron
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
           >
-            {item.label}
-          </a>
-        ))
-      }
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+        <div
+          id="drawer-services-panel"
+          data-drawer-services-panel
+          class="overflow-hidden transition-[max-height] duration-200 ease-in-out max-h-0 data-visible:max-h-40"
+        >
+          <div class="mt-1 flex flex-col gap-0.5 pl-4">
+            {
+              services.map(service => (
+                <a
+                  href={withBase(service.href)}
+                  data-drawer-close
+                  class="rounded-lg px-4 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-sky-600 dark:text-slate-300 dark:hover:bg-slate-800"
+                >
+                  {service.title}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
     </nav>
     <!-- Theme toggle (mobile) -->
     <button
@@ -244,6 +340,74 @@ const navItems: { label: string; href: string }[] = []
     closeButtons.forEach(el => el.addEventListener('click', close))
   }
 
+  function initMegaMenu() {
+    const toggle = document.querySelector<HTMLButtonElement>('[data-megamenu-toggle]')
+    const panel = document.querySelector<HTMLElement>('[data-megamenu]')
+    const closeLinks = document.querySelectorAll<HTMLElement>('[data-megamenu-close]')
+
+    if (!toggle || !panel) return
+
+    function open() {
+      panel!.setAttribute('data-visible', '')
+      panel!.setAttribute('aria-hidden', 'false')
+      toggle!.setAttribute('aria-expanded', 'true')
+      toggle!.setAttribute('data-open', '')
+    }
+
+    function close() {
+      panel!.removeAttribute('data-visible')
+      panel!.setAttribute('aria-hidden', 'true')
+      toggle!.setAttribute('aria-expanded', 'false')
+      toggle!.removeAttribute('data-open')
+    }
+
+    function isOpen() {
+      return panel!.hasAttribute('data-visible')
+    }
+
+    toggle.addEventListener('click', () => {
+      if (isOpen()) close()
+      else open()
+    })
+
+    closeLinks.forEach(link => link.addEventListener('click', close))
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && isOpen()) close()
+    })
+
+    document.addEventListener('click', e => {
+      if (!isOpen()) return
+      const target = e.target as Node
+      if (!toggle!.contains(target) && !panel!.contains(target)) {
+        close()
+      }
+    })
+  }
+
+  function initDrawerServices() {
+    const toggle = document.querySelector<HTMLButtonElement>('[data-drawer-services-toggle]')
+    const subPanel = document.querySelector<HTMLElement>('[data-drawer-services-panel]')
+    const chevron = document.querySelector<HTMLElement>('[data-drawer-services-chevron]')
+
+    if (!toggle || !subPanel) return
+
+    toggle.addEventListener('click', () => {
+      const isOpen = subPanel.hasAttribute('data-visible')
+      if (isOpen) {
+        subPanel.removeAttribute('data-visible')
+        toggle.setAttribute('aria-expanded', 'false')
+        chevron?.removeAttribute('data-open')
+      } else {
+        subPanel.setAttribute('data-visible', '')
+        toggle.setAttribute('aria-expanded', 'true')
+        chevron?.setAttribute('data-open', '')
+      }
+    })
+  }
+
   initTheme()
   initDrawer()
+  initMegaMenu()
+  initDrawerServices()
 </script>
