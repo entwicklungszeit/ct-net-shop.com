@@ -4,16 +4,34 @@ import { withBase } from '../utils/url'
 
 const services = [
   {
-    title: 'KNX',
+    title: 'KNX Smart Home',
     href: '/knx',
     description:
-      'Intelligente Hausautomation mit klarer Planung, professioneller Installation und sauberer Inbetriebnahme.'
+      'Intelligente Hausautomation, die für Sie mitdenkt – Licht, Beschattung, Heizung und Sicherheit nahtlos vereint.'
   },
   {
     title: 'Photovoltaik',
     href: '/photovoltaik',
     description:
-      'Ganzheitliche PV-Lösungen von der ersten Idee bis zur Montage für private und gewerbliche Objekte.'
+      'Werden Sie Ihr eigener Energieversorger. PV, Speicher, Wallbox und App-Steuerung aus einer Hand.'
+  },
+  {
+    title: 'Wärmepumpe',
+    href: '/waermepumpe',
+    description:
+      'Elektrischer Anschluss, Anmeldung beim Energieversorger und PV-Kopplung – sauber abgestimmt mit Ihrem Heizungsbauer.'
+  },
+  {
+    title: 'IT-Infrastruktur',
+    href: '/it',
+    description:
+      'Schluss mit Funklöchern und instabilem WLAN. Wir liefern Netzwerke, Sicherheit und Backups, die einfach funktionieren.'
+  },
+  {
+    title: 'Elektroinstallation',
+    href: '/elektroinstallation',
+    description:
+      'Das sichere Fundament jedes Gebäudes – vom Neubau bis zur Sanierung, inklusive Beleuchtung und Schutztechnik.'
   }
 ]
 
@@ -79,20 +97,22 @@ const processSteps = [
             Smart, Stable, Powerful, Since 2009
           </p>
           <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-            CT-Net für IT-, Elektro- und Zukunftsprojekte.
+            CT-Netware – Informations- & Elektrotechnik Pleißner.
           </h1>
           <p class="max-w-2xl text-base leading-relaxed text-slate-100 sm:text-lg">
-            Ihr IT und E-Technik Partner für Leipzig und Umgebung, sogar darüber hinaus.
+            Ihr starker Partner in allen Fragen zu IT, Elektroinstallation und erneuerbarer
+            Energie in Leipzig, Umgebung und sogar weit darüber hinaus. Bundesweit im Einsatz
+            bieten wir Ihnen kompetente Planung und individuelle Lösungen für Ihre Projekte.
           </p>
           <div class="flex flex-wrap items-center gap-4">
             <a
-              href={withBase('/kontakt')}
+              href={withBase('/kontakt?meeting=1')}
               class="inline-flex items-center justify-center rounded-full bg-sky-500 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-[0_16px_40px_rgba(14,165,233,0.45)] transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             >
-              Kontakt aufnehmen
+              Gesprächstermin vereinbaren
             </a>
             <span class="text-sm uppercase tracking-[0.14em] text-slate-200/95">
-              Planung, Montage, Betreuung
+              Planung · Montage · Betreuung
             </span>
           </div>
         </div>
@@ -100,15 +120,20 @@ const processSteps = [
     </section>
 
     <section class="mx-auto w-full max-w-7xl px-6 py-20 sm:px-8 lg:px-12">
-      <div class="mb-10 space-y-3">
+      <div class="mb-10 max-w-3xl space-y-3">
         <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300">
           Dienstleistungen
         </p>
         <h2 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl">
-          Technische Kompetenz in zwei starken Bereichen
+          Eine Hand. Fünf starke Bereiche.
         </h2>
+        <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">
+          Von der intelligenten Gebäudesteuerung bis zur sauberen Elektroinstallation – alle
+          Gewerke greifen bei uns sauber ineinander. Sie haben einen Ansprechpartner, der das
+          Ganze versteht.
+        </p>
       </div>
-      <div class="grid gap-6 md:grid-cols-2">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
           services.map((service, index) => (
             <a
@@ -124,11 +149,11 @@ const processSteps = [
               <p class="mt-4 max-w-[36ch] text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                 {service.description}
               </p>
-              <span
-                class="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-600 dark:text-sky-300"
-              >
+              <span class="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-600 dark:text-sky-300">
                 Mehr erfahren
-                <span aria-hidden="true" class="transition group-hover:translate-x-1">-></span>
+                <span aria-hidden="true" class="transition group-hover:translate-x-1">
+                  →
+                </span>
               </span>
             </a>
           ))
@@ -155,9 +180,7 @@ const processSteps = [
             processSteps.map((step, index) => (
               <li class="rounded-2xl border border-slate-200 bg-slate-50/85 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/80">
                 <div class="mb-3 flex items-center gap-3">
-                  <span
-                    class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-500 text-xs font-bold text-slate-950"
-                  >
+                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-500 text-xs font-bold text-slate-950">
                     {index + 1}
                   </span>
                   <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
@@ -172,7 +195,7 @@ const processSteps = [
         </ol>
         <div class="mt-12">
           <a
-            href={withBase('/kontakt')}
+            href={withBase('/kontakt?meeting=1')}
             class="inline-flex items-center justify-center rounded-full bg-slate-900 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
           >
             Jetzt Projekt gemeinsam besprechen

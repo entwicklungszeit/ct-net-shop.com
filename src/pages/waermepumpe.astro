@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ServiceHero from '../components/ServiceHero.astro'
+import FeatureGrid from '../components/FeatureGrid.astro'
+import CtaBanner from '../components/CtaBanner.astro'
+import { withBase } from '../utils/url'
+
+const services = [
+  {
+    icon: '⚡',
+    title: 'Elektrischer Anschluss',
+    description:
+      'Wir übernehmen die fachgerechten elektrischen Anschlussarbeiten Ihrer Wärmepumpe – von der Vorbereitung der Zuleitung bis zum normgerechten Aufschalten im Schaltschrank.'
+  },
+  {
+    icon: '✎',
+    title: 'Anmeldung Energieversorger',
+    description:
+      'Wir kümmern uns um die vollständige Anmeldung beim Netzbetreiber inklusive § 14a EnWG, damit Sie alle Förderungen und Tarifvorteile rechtssicher nutzen können.'
+  },
+  {
+    icon: '◈',
+    title: 'Lastmanagement & PV-Kopplung',
+    description:
+      'Mit cleverem Energiemanagement koppeln wir Ihre Wärmepumpe an Ihre PV-Anlage und Ihren Speicher. Heizen mit Sonne – immer dann, wenn Strom günstig oder selbst erzeugt ist.'
+  },
+  {
+    icon: '⊞',
+    title: 'Koordination mit Heizungsbauer',
+    description:
+      'Wir arbeiten Hand in Hand mit Ihrem Heizungsinstallateur. Sie haben einen Ansprechpartner für Elektrik – die Schnittstelle ist sauber abgestimmt, Termine greifen ineinander.'
+  }
+]
+
+const handoverSteps = [
+  {
+    title: 'Bestandsaufnahme',
+    description:
+      'Wir prüfen Ihren Zählerschrank, die vorhandene Zuleitung und stimmen die elektrischen Anforderungen Ihrer Wärmepumpe ab.'
+  },
+  {
+    title: 'Planung & Anmeldung',
+    description:
+      'Wir erstellen das Anmeldeformular für den Netzbetreiber, planen Lastmanagement und Schnittstellen zu KNX, PV und Speicher.'
+  },
+  {
+    title: 'Anschluss & Inbetriebnahme',
+    description:
+      'Wir installieren Zuleitung, Sicherungen und Steuerleitung, führen Messungen durch und übergeben das System gemeinsam mit dem Heizungsbauer.'
+  }
+]
+---
+
+<Layout>
+  <main class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <ServiceHero
+      eyebrow="Erneuerbare Energien"
+      title="Wärmepumpen-Anschluss – sauber elektrifiziert."
+      lead="Eine Wärmepumpe entfaltet ihre Stärke erst, wenn die Elektroinstallation dahinter passt. Wir übernehmen die elektrischen Anschlussarbeiten und die Anmeldung beim Energieversorger – in enger Abstimmung mit Ihrem Heizungsinstallateur. Sie heizen klimaschonend, effizient und mit eigenem Sonnenstrom."
+      reason="waermepumpe"
+    />
+
+    <FeatureGrid
+      eyebrow="Was wir übernehmen"
+      heading="Eine Schnittstelle. Ein Ansprechpartner."
+      intro="Wir kümmern uns um alles, was zwischen Ihrem Hausanschluss und Ihrer Wärmepumpe passiert – damit nichts dazwischen verloren geht."
+      features={services}
+      columns={2}
+    />
+
+    <section class="relative isolate overflow-hidden border-y border-slate-200 bg-white py-20 sm:py-24 dark:border-slate-800 dark:bg-slate-900/40">
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_20%,rgba(14,165,233,0.16),transparent_45%),radial-gradient(circle_at_85%_85%,rgba(251,191,36,0.16),transparent_45%)]"
+      >
+      </div>
+      <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div class="mb-10 max-w-2xl space-y-3">
+          <p
+            class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300"
+          >
+            Ablauf
+          </p>
+          <h2
+            class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50"
+          >
+            So bringen wir Ihre Wärmepumpe ans Netz.
+          </h2>
+        </div>
+        <ol class="grid gap-5 md:grid-cols-3">
+          {
+            handoverSteps.map((step, index) => (
+              <li class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900/80">
+                <div class="mb-3 flex items-center gap-3">
+                  <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky-500 text-sm font-bold text-slate-950">
+                    {index + 1}
+                  </span>
+                  <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                    Schritt {index + 1}
+                  </span>
+                </div>
+                <p class="text-base font-semibold leading-snug text-slate-800 dark:text-slate-100">
+                  {step.title}
+                </p>
+                <p class="mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  {step.description}
+                </p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="py-20 sm:py-24">
+      <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <a
+          href={withBase('/photovoltaik')}
+          class="group relative flex flex-col gap-4 overflow-hidden rounded-3xl border border-sky-200/70 bg-gradient-to-br from-sky-50 via-white to-amber-50 p-8 transition hover:-translate-y-0.5 hover:border-sky-300 hover:shadow-[0_18px_45px_rgba(14,165,233,0.2)] sm:flex-row sm:items-center sm:justify-between sm:p-10 dark:border-sky-400/20 dark:from-sky-500/10 dark:via-slate-900 dark:to-amber-500/10 dark:hover:border-sky-400/40"
+        >
+          <div class="space-y-2">
+            <p
+              class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-300"
+            >
+              Komplettes Energie-Bild
+            </p>
+            <h2
+              class="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl dark:text-slate-50"
+            >
+              Photovoltaik & Speicher als Energiequelle für Ihre Wärmepumpe
+            </h2>
+            <p class="max-w-xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Eigener Sonnenstrom direkt vom Dach in die Wärmepumpe. Wir zeigen Ihnen, wie sich
+              Wärmepumpe und PV-Anlage gegenseitig stark machen.
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center gap-2 self-start rounded-full bg-slate-900 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition group-hover:bg-slate-700 dark:bg-sky-400 dark:text-slate-950 dark:group-hover:bg-sky-300"
+          >
+            Zur Photovoltaik-Seite
+            <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <CtaBanner
+      reason="waermepumpe"
+      heading="Wir kümmern uns um die Elektrik. Sie genießen die Wärme."
+      subline="Vereinbaren Sie ein unverbindliches Beratungsgespräch. Wir prüfen Ihren Zählerschrank, klären die Anforderungen Ihres Energieversorgers und stimmen alles mit Ihrem Heizungsinstallateur ab."
+    />
+  </main>
+</Layout>

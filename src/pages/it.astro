@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ServiceHero from '../components/ServiceHero.astro'
+import FeatureGrid from '../components/FeatureGrid.astro'
+import PartnerLogos from '../components/PartnerLogos.astro'
+import CtaBanner from '../components/CtaBanner.astro'
+import { withBase } from '../utils/url'
+
+const itFeatures = [
+  {
+    icon: '⌬',
+    title: 'High-Speed Netzwerke (LAN & WLAN)',
+    description:
+      'Schluss mit Funklöchern. Wir sorgen für eine flächendeckende, performante WLAN-Abdeckung und eine professionelle LAN-Verkabelung in jedem Raum.'
+  },
+  {
+    icon: '⛨',
+    title: 'Netzwerksicherheit & Firewalls',
+    description:
+      'Wir schützen Ihre privaten Daten und Geräte vor Zugriffen von außen. Sicherheit fängt beim Router an – und endet erst beim letzten verbundenen Gerät.'
+  },
+  {
+    icon: '⊟',
+    title: 'Datensicherung (Backup-Lösungen)',
+    description:
+      'Ihre Fotos, Dokumente und Projektdaten sind wertvoll. Wir richten automatisierte Backup-Systeme (NAS / Cloud) ein, damit nichts verloren geht.'
+  },
+  {
+    icon: '◈',
+    title: 'Smart Integration',
+    description:
+      'Wir vernetzen Ihre IT mit Ihrer Gebäudeautomation (KNX) und Ihrem Energiemanagement, damit alle Systeme nahtlos miteinander kommunizieren.'
+  }
+]
+---
+
+<Layout>
+  <main class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <ServiceHero
+      eyebrow="IT-Infrastruktur"
+      title="Das starke Rückgrat für Zuhause & Business."
+      lead="In einer vernetzten Welt ist eine stabile IT-Infrastruktur kein Luxus mehr, sondern die Basis für alles. Ob Home-Office, Streaming oder die Steuerung Ihrer Smart-Home- und PV-Komponenten: Erst ein leistungsstarkes Netzwerk macht Technik wirklich erlebbar."
+      reason="it-services"
+    />
+
+    <FeatureGrid
+      eyebrow="Unsere IT-Lösungen"
+      heading="Netzwerke, die mit Ihren Anforderungen wachsen."
+      intro="Sicher, schnell und stabil – wir planen und installieren die Infrastruktur, die heute trägt und morgen mitwächst."
+      features={itFeatures}
+      columns={2}
+    />
+
+    <section class="py-20 sm:py-24">
+      <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <figure
+          class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 sm:p-12 dark:border-slate-800 dark:bg-slate-900/85"
+        >
+          <span
+            aria-hidden="true"
+            class="pointer-events-none absolute -top-6 left-6 select-none font-serif text-9xl leading-none text-sky-300/60 dark:text-sky-400/30"
+            >&ldquo;</span
+          >
+          <blockquote
+            class="relative pl-12 text-xl font-medium leading-relaxed text-slate-800 sm:text-2xl dark:text-slate-100"
+          >
+            Ein gut eingerichtetes Netzwerk merkt man erst dann, wenn man es nicht mehr bemerkt.
+            Wir nehmen Ihnen die Komplexität ab und liefern eine schlüsselfertige IT-Umgebung,
+            die genau auf Ihre Bedürfnisse zugeschnitten ist.
+          </blockquote>
+          <figcaption
+            class="mt-6 pl-12 text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300"
+          >
+            CT-Net · Technik, die einfach funktioniert.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="py-12 sm:py-16">
+      <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div
+          class="relative isolate overflow-hidden rounded-3xl border border-sky-200 bg-gradient-to-br from-sky-50 via-white to-sky-50 p-8 sm:p-12 dark:border-sky-400/20 dark:from-sky-500/10 dark:via-slate-900 dark:to-sky-500/10"
+        >
+          <div
+            aria-hidden="true"
+            class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_85%_30%,rgba(56,189,248,0.25),transparent_55%)]"
+          >
+          </div>
+          <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+            <div class="space-y-3">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-300"
+              >
+                Genug genervt?
+              </p>
+              <h2
+                class="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl dark:text-slate-50"
+              >
+                Haben Sie genug von instabilem Internet?
+              </h2>
+              <p class="max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                Lassen Sie uns Ihre IT auf das nächste Level heben. In einem unverbindlichen
+                Gespräch analysieren wir Ihren Status quo und zeigen Ihnen, was wirklich
+                möglich ist.
+              </p>
+            </div>
+            <a
+              href={withBase('/kontakt?reason=it-services&meeting=1')}
+              class="inline-flex items-center justify-center gap-2 self-start rounded-full bg-sky-500 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-[0_16px_40px_rgba(14,165,233,0.45)] transition hover:-translate-y-0.5 hover:bg-sky-400 hover:shadow-[0_18px_45px_rgba(14,165,233,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2"
+            >
+              Gesprächstermin vereinbaren
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <PartnerLogos
+      eyebrow="Bewährte Hersteller"
+      heading="Mit Komponenten, die sich täglich beweisen."
+      intro="Wir setzen auf Hersteller, deren Geräte wir aus Erfahrung empfehlen können – getestet im Alltag unserer Kund:innen."
+      logos={[
+        { src: '/partners/avm.svg', alt: 'AVM', label: 'AVM' },
+        { src: '/partners/devolo.svg', alt: 'devolo', label: 'devolo' },
+        { src: '/partners/corsair.svg', alt: 'Corsair', label: 'Corsair' },
+        { src: '/partners/dlink.svg', alt: 'D-Link', label: 'D-Link' },
+        { src: '/partners/microsoft.svg', alt: 'Microsoft', label: 'Microsoft' }
+      ]}
+    />
+
+    <CtaBanner
+      reason="it-services"
+      heading="Schluss mit Funklöchern, lahmen Backups und Sorgen um Ihre Daten."
+      subline="Erzählen Sie uns von Ihrer aktuellen Situation. Wir analysieren, planen und liefern eine schlüsselfertige IT-Umgebung – damit Technik wieder einfach funktioniert."
+    />
+  </main>
+</Layout>

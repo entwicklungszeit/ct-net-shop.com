@@ -1,64 +1,184 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import ServiceHero from '../components/ServiceHero.astro'
+import FeatureGrid from '../components/FeatureGrid.astro'
+import PartnerLogos from '../components/PartnerLogos.astro'
+import CtaBanner from '../components/CtaBanner.astro'
 import { withBase } from '../utils/url'
+
+const completePackage = [
+  {
+    icon: '☀',
+    title: 'Photovoltaik & Wechselrichter',
+    description:
+      'Wandeln Sie Sonnenlicht hocheffizient in nutzbaren Strom um – und verbrauchen Sie ihn direkt dort, wo er entsteht.'
+  },
+  {
+    icon: '⚡',
+    title: 'Batteriespeicher',
+    description:
+      'Nutzen Sie Ihre Solarenergie flexibel – auch nach Sonnenuntergang. So maximieren Sie Ihre Eigenverbrauchsquote spürbar.'
+  },
+  {
+    icon: '⊕',
+    title: 'E-Ladestation (Wallbox)',
+    description:
+      'Laden Sie Ihr Elektrofahrzeug bequem, schnell und klimaschonend mit eigenem Sonnenstrom – direkt vor der Haustür.'
+  },
+  {
+    icon: '◈',
+    title: 'Energiemanager & App',
+    description:
+      'Behalten Sie die volle Kontrolle. Steuern und verteilen Sie Ihre Energie effizient per App und senken Sie Ihre Kosten spürbar.'
+  }
+]
+
+const trustReasons = [
+  {
+    icon: '✓',
+    title: 'Höchste Effizienz',
+    description:
+      'Wir setzen auf patentierte Technologien, die das Maximum an Energie aus jedem Sonnenstrahl herausholen – heute und über Jahrzehnte.'
+  },
+  {
+    icon: '✓',
+    title: 'Geprüfte Qualität',
+    description:
+      'Wir verbauen ausschließlich Komponenten namhafter Hersteller mit zertifizierten Sicherheitsstandards und langer Garantielaufzeit.'
+  },
+  {
+    icon: '✓',
+    title: 'Wertsteigerung',
+    description:
+      'Eine moderne Energieversorgung macht Ihre Immobilie zukunftssicher und steigert ihren Marktwert nachhaltig.'
+  }
+]
 ---
 
 <Layout>
-  <main class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-    <section class="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 lg:px-12">
-      <div class="max-w-3xl space-y-5">
-        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300">
-          Dienstleistungen
-        </p>
-        <h1
-          class="text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl"
-        >
-          Photovoltaik
-        </h1>
-        <p class="text-base leading-relaxed text-slate-700 dark:text-slate-300">
-          Wir entwickeln Photovoltaik-Konzepte, die technisch und wirtschaftlich zu Ihrem Objekt
-          passen. Planung, Material, Montage und Inbetriebnahme greifen bei uns sauber ineinander.
-        </p>
-      </div>
+  <main class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <ServiceHero
+      eyebrow="Erneuerbare Energien"
+      title="Photovoltaik – Ihre Energie-Unabhängigkeit."
+      lead="Machen Sie sich frei von steigenden Stromkosten und werden Sie Ihr eigener Energieversorger. Wir bieten Ihnen die Komplettlösung für eine nachhaltige Energieversorgung – perfekt abgestimmt auf Ihr Zuhause. Das Beste daran: Die Sonne schickt Ihnen keine Rechnung."
+      reason="photovoltaik"
+    />
 
-      <div class="mt-12 grid gap-6 md:grid-cols-3">
-        <article
-          class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/85"
-        >
-          <h2 class="text-lg font-semibold">Konzept</h2>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Analyse der Flächen, Auslegung der Komponenten und transparente Ertrags- sowie
-            Wirtschaftlichkeitsbetrachtung.
-          </p>
-        </article>
-        <article
-          class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/85"
-        >
-          <h2 class="text-lg font-semibold">Montage</h2>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Zuverlässige Installation mit Fokus auf Sicherheit, langlebige Komponenten und
-            termingerechte Ausführung.
-          </p>
-        </article>
-        <article
-          class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/85"
-        >
-          <h2 class="text-lg font-semibold">Inbetriebnahme</h2>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Anschluss, Funktionstest und Übergabe inklusive klarer Einweisung für den
-            alltagstauglichen Betrieb.
-          </p>
-        </article>
+    <section class="py-20 sm:py-24">
+      <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div class="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-center">
+          <div class="space-y-4">
+            <p
+              class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300"
+            >
+              Rundum-Sorglos
+            </p>
+            <h2
+              class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50"
+            >
+              Vom ersten Entwurf bis zur offiziellen Anmeldung.
+            </h2>
+            <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">
+              Gemeinsam mit unseren Partnern begleiten wir Sie auf dem gesamten Weg. Sie lehnen
+              sich zurück, wir erledigen den Rest – Konzept, Material, Montage, Inbetriebnahme
+              und alle Anmeldungen beim Netzbetreiber.
+            </p>
+          </div>
+          <div
+            class="grid grid-cols-2 gap-4 rounded-3xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/70"
+          >
+            <div class="space-y-1">
+              <p class="text-3xl font-semibold text-sky-600 dark:text-sky-300">100 %</p>
+              <p class="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                aus einer Hand –<br />Konzept bis Anmeldung
+              </p>
+            </div>
+            <div class="space-y-1">
+              <p class="text-3xl font-semibold text-sky-600 dark:text-sky-300">0 €</p>
+              <p class="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                Rechnung von der Sonne –<br />jeden Tag, jedes Jahr
+              </p>
+            </div>
+            <div class="space-y-1">
+              <p class="text-3xl font-semibold text-sky-600 dark:text-sky-300">↑ Wert</p>
+              <p class="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                Ihre Immobilie wird<br />zukunftssicher & wertvoller
+              </p>
+            </div>
+            <div class="space-y-1">
+              <p class="text-3xl font-semibold text-sky-600 dark:text-sky-300">2009</p>
+              <p class="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                Smart, Stable, Powerful –<br />seit über 15 Jahren
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="mt-12">
+    <FeatureGrid
+      eyebrow="Unser Komplettpaket"
+      heading="Modernste Technik – als intelligentes Gesamtsystem."
+      intro="Wir vernetzen jede Komponente so, dass sie ihre volle Wirkung entfaltet. Sie verbrauchen Ihre Energie dort, wo sie entsteht."
+      features={completePackage}
+      columns={4}
+      variant="muted"
+    />
+
+    <section class="py-12 sm:py-16">
+      <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <a
-          href={withBase('/kontakt')}
-          class="inline-flex items-center justify-center rounded-full bg-sky-500 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2"
+          href={withBase('/waermepumpe')}
+          class="group relative flex flex-col gap-4 overflow-hidden rounded-3xl border border-amber-200/70 bg-gradient-to-br from-amber-50 via-white to-sky-50 p-8 transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-[0_18px_45px_rgba(251,191,36,0.25)] sm:flex-row sm:items-center sm:justify-between sm:p-10 dark:border-amber-300/20 dark:from-amber-500/10 dark:via-slate-900 dark:to-sky-500/10 dark:hover:border-amber-300/40"
         >
-          Photovoltaik Projekt anfragen
+          <div class="space-y-2">
+            <p
+              class="text-xs font-semibold uppercase tracking-[0.24em] text-amber-700 dark:text-amber-300"
+            >
+              Ergänzung zu Ihrer PV-Anlage
+            </p>
+            <h2
+              class="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl dark:text-slate-50"
+            >
+              Wärmepumpen-Anschluss & Anmeldung beim Energieversorger
+            </h2>
+            <p class="max-w-xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              In enger Zusammenarbeit mit Ihrem Heizungsinstallateur übernehmen wir die
+              elektrischen Anschlussarbeiten und alle Anmeldungen.
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center gap-2 self-start rounded-full bg-slate-900 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition group-hover:bg-slate-700 dark:bg-sky-400 dark:text-slate-950 dark:group-hover:bg-sky-300"
+          >
+            Mehr erfahren
+            <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
+          </span>
         </a>
       </div>
     </section>
+
+    <FeatureGrid
+      eyebrow="Warum CT-Net?"
+      heading="Drei Gründe, warum Sie sich für uns entscheiden sollten."
+      features={trustReasons}
+      columns={3}
+    />
+
+    <PartnerLogos
+      eyebrow="Komponenten-Partner"
+      heading="Wir verbauen ausschließlich Markenqualität."
+      intro="Modulen, Wechselrichter und Speicher von Herstellern, die ihre Komponenten weltweit unter Beweis gestellt haben."
+      logos={[
+        { src: '/partners/sma.svg', alt: 'SMA Solar Technology', label: 'SMA' },
+        { src: '/partners/huawei.svg', alt: 'Huawei FusionSolar', label: 'Huawei' },
+        { src: '/partners/lg.svg', alt: 'LG Energy Solution', label: 'LG' }
+      ]}
+    />
+
+    <CtaBanner
+      reason="photovoltaik"
+      heading="Werden Sie zum eigenen Energieversorger."
+      subline="In einem persönlichen Gespräch analysieren wir Ihre Dachflächen und Ihren Verbrauch. Sie erhalten eine ehrliche Einschätzung zu Ertrag, Eigenverbrauch und Amortisation – ohne Marketing-Floskeln."
+    />
   </main>
 </Layout>

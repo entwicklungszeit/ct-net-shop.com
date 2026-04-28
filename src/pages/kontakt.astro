@@ -344,9 +344,11 @@ import Layout from '../layouts/Layout.astro'
                 class="block w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100 dark:focus:border-sky-400 dark:focus:ring-sky-500/60"
               >
                 <option value="">Bitte wählen…</option>
-                <option value="photovoltaik">Anfrage Photovoltaik</option>
                 <option value="automation">Anfrage Hausautomation / KNX</option>
-                <option value="it-services">Anfrage IT- & Elektronikdienstleistungen</option>
+                <option value="photovoltaik">Anfrage Photovoltaik</option>
+                <option value="waermepumpe">Anfrage Wärmepumpen-Anschluss</option>
+                <option value="it-services">Anfrage IT-Infrastruktur</option>
+                <option value="elektroinstallation">Anfrage Elektroinstallation</option>
                 <option value="support">Technische Unterstützung / Support</option>
                 <option value="other">Sonstiges Anliegen</option>
               </select>
@@ -391,4 +393,25 @@ import Layout from '../layouts/Layout.astro'
       </div>
     </section>
   </main>
+
+  <script>
+    // Pre-fill the contact form based on URL query params (?reason=...&meeting=1).
+    // This wires every "Gesprächstermin vereinbaren" CTA across the site directly
+    // into the form's reason select and the meeting checkbox.
+    const params = new URLSearchParams(window.location.search)
+    const reason = params.get('reason')
+    if (reason) {
+      const select = document.getElementById('reason')
+      if (select instanceof HTMLSelectElement) {
+        const exists = Array.from(select.options).some(o => o.value === reason)
+        if (exists) select.value = reason
+      }
+    }
+    if (params.get('meeting') === '1') {
+      const cb = document.querySelector<HTMLInputElement>(
+        'input[name="contactQuestions"][value="meeting"]'
+      )
+      if (cb) cb.checked = true
+    }
+  </script>
 </Layout>

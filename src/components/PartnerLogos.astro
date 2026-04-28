@@ -1,0 +1,91 @@
+---
+import { withBase } from '../utils/url'
+
+interface Logo {
+  src: string
+  alt: string
+  label: string
+}
+
+interface Props {
+  eyebrow?: string
+  heading: string
+  intro?: string
+  logos: Logo[]
+}
+
+const { eyebrow = 'Partner', heading, intro, logos } = Astro.props
+---
+
+<section class="py-20 sm:py-24">
+  <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+    <div class="mb-10 max-w-3xl space-y-3">
+      <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300">
+        {eyebrow}
+      </p>
+      <h2
+        class="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl dark:text-slate-50"
+      >
+        {heading}
+      </h2>
+      {
+        intro && (
+          <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">{intro}</p>
+        )
+      }
+    </div>
+
+    <ul
+      class="flex flex-wrap items-center gap-3 sm:gap-4"
+      aria-label="Partner und Hersteller"
+    >
+      {
+        logos.map(logo => (
+          <li
+            class="group flex h-20 min-w-[160px] flex-1 items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm transition hover:border-sky-300 hover:shadow-[0_12px_30px_rgba(14,165,233,0.15)] dark:border-slate-800 dark:bg-slate-900/70 dark:hover:border-sky-500/60"
+            data-partner-logo
+          >
+            <img
+              src={withBase(logo.src)}
+              alt={logo.alt}
+              loading="lazy"
+              decoding="async"
+              class="max-h-12 w-auto max-w-[140px] opacity-80 transition group-hover:opacity-100 dark:opacity-90 dark:invert dark:brightness-0 dark:contrast-200"
+              data-partner-img
+              data-label={logo.label}
+            />
+            <span
+              class="hidden text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-300"
+              data-partner-fallback
+            >
+              {logo.label}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<script>
+  // Show a clean text fallback if a partner logo file is missing or empty.
+  function applyPartnerFallback(img: HTMLImageElement) {
+    const li = img.closest('[data-partner-logo]')
+    if (!li) return
+    const fallback = li.querySelector<HTMLElement>('[data-partner-fallback]')
+    if (!fallback) return
+    img.classList.add('hidden')
+    fallback.classList.remove('hidden')
+  }
+
+  document.querySelectorAll<HTMLImageElement>('[data-partner-img]').forEach(img => {
+    if (img.complete) {
+      if (!img.naturalWidth) applyPartnerFallback(img)
+    } else {
+      img.addEventListener('error', () => applyPartnerFallback(img))
+      img.addEventListener('load', () => {
+        if (!img.naturalWidth) applyPartnerFallback(img)
+      })
+    }
+  })
+</script>

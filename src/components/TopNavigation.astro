@@ -3,16 +3,34 @@ import { withBase } from '../utils/url'
 
 const services = [
   {
-    title: 'KNX',
+    title: 'KNX Smart Home',
     href: '/knx',
     description:
-      'Intelligente Hausautomation mit klarer Planung, professioneller Installation und sauberer Inbetriebnahme.'
+      'Intelligente Hausautomation, die für Sie mitdenkt – Licht, Beschattung, Heizung und Sicherheit nahtlos vereint.'
   },
   {
     title: 'Photovoltaik',
     href: '/photovoltaik',
     description:
-      'Ganzheitliche PV-Lösungen von der ersten Idee bis zur Montage für private und gewerbliche Objekte.'
+      'Werden Sie Ihr eigener Energieversorger. PV, Speicher, Wallbox und App-Steuerung aus einer Hand.'
+  },
+  {
+    title: 'Wärmepumpe',
+    href: '/waermepumpe',
+    description:
+      'Elektrischer Anschluss und Anmeldung beim Energieversorger – sauber abgestimmt mit Ihrem Heizungsbauer.'
+  },
+  {
+    title: 'IT-Infrastruktur',
+    href: '/it',
+    description:
+      'Performante Netzwerke, sichere Firewalls und automatisierte Backups – Technik, die einfach funktioniert.'
+  },
+  {
+    title: 'Elektroinstallation',
+    href: '/elektroinstallation',
+    description:
+      'Vom Neubau bis zur Sanierung. Solides Handwerk, moderne Beleuchtung und effektiver Schutz.'
   }
 ]
 ---
@@ -79,10 +97,10 @@ const services = [
       </button>
       <!-- Desktop CTA -->
       <a
-        href={withBase('/kontakt')}
+        href={withBase('/kontakt?meeting=1')}
         class="shrink-0 rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 dark:bg-sky-500 dark:text-slate-950 dark:hover:bg-sky-400"
       >
-        Kontakt aufnehmen
+        Termin vereinbaren
       </a>
     </div>
 
@@ -119,7 +137,7 @@ const services = [
     >
       Dienstleistungen
     </p>
-    <div class="grid gap-4 md:grid-cols-2">
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {
         services.map((service, index) => (
           <a
@@ -208,7 +226,7 @@ const services = [
         <div
           id="drawer-services-panel"
           data-drawer-services-panel
-          class="overflow-hidden transition-[max-height] duration-200 ease-in-out max-h-0 data-visible:max-h-40"
+          class="overflow-hidden transition-[max-height] duration-200 ease-in-out max-h-0 data-visible:max-h-96"
         >
           <div class="mt-1 flex flex-col gap-0.5 pl-4">
             {
@@ -258,11 +276,11 @@ const services = [
       <span class="hidden dark:inline">Hellmodus</span>
     </button>
     <a
-      href={withBase('/kontakt')}
+      href={withBase('/kontakt?meeting=1')}
       class="rounded-lg bg-sky-500 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-sky-400 dark:bg-sky-400 dark:text-slate-950"
       data-drawer-close
     >
-      Kontakt aufnehmen
+      Termin vereinbaren
     </a>
   </div>
 </div>

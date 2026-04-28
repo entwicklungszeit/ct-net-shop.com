@@ -1,65 +1,139 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import ServiceHero from '../components/ServiceHero.astro'
+import FeatureGrid from '../components/FeatureGrid.astro'
+import PartnerLogos from '../components/PartnerLogos.astro'
+import CtaBanner from '../components/CtaBanner.astro'
 import { withBase } from '../utils/url'
+
+const whyKnx = [
+  {
+    icon: '∞',
+    title: 'Maximale Flexibilität',
+    description:
+      'Über 500 namhafte Hersteller bieten KNX-kompatible Geräte an. Sie sind nie an einen Anbieter gebunden und können Ihr System jederzeit erweitern.'
+  },
+  {
+    icon: '↗',
+    title: 'Zukunftssicherheit',
+    description:
+      'KNX ist seit Jahrzehnten der weltweit führende Standard für Gebäudeautomation. Ihr System wächst mit Ihren Ansprüchen – heute, morgen und in zehn Jahren.'
+  },
+  {
+    icon: '◇',
+    title: 'Nahtlose Integration',
+    description:
+      'Über individuelle Schnittstellen kommuniziert Ihr Haus mit Sprachassistenten wie Alexa oder Google Assistant – und mit allem, was Sie sonst noch nutzen.'
+  }
+]
+
+const smartHomeFeatures = [
+  {
+    icon: '⌂',
+    title: 'Ankommen wie im Film',
+    description:
+      'Ihr Haus erkennt Sie bei der Ankunft via Smartphone. Die Tür öffnet sich, das Licht dimmt auf Ihre Wohlfühlatmosphäre und Ihre Lieblingsmusik startet automatisch.'
+  },
+  {
+    icon: '⊞',
+    title: 'Alles im Griff',
+    description:
+      'Bedienen Sie Licht, Jalousien und Heizung klassisch per Taster im Raum oder bündeln Sie alles auf einem zentralen Wand-Tablet – Sie haben die Wahl.'
+  },
+  {
+    icon: '⛨',
+    title: 'Sicherheit weltweit',
+    description:
+      'Behalten Sie weltweit den Überblick. Ob Wetterstation, Gartenbewässerung oder der Postbote, der ein Paket sicher im Carport ablegt – Sie haben die Kontrolle.'
+  },
+  {
+    icon: '⚘',
+    title: 'Aktive Nachhaltigkeit',
+    description:
+      'Licht und unnötige Stromfresser schalten sich ab, wenn niemand im Raum ist. Die Heizung regelt automatisch herunter, sobald Sie das Haus verlassen oder ein Fenster öffnen.'
+  }
+]
 ---
 
 <Layout>
-  <main class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-    <section class="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 lg:px-12">
-      <div class="max-w-3xl space-y-5">
-        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300">
-          Dienstleistungen
-        </p>
-        <h1
-          class="text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl"
-        >
-          KNX Hausautomation
-        </h1>
-        <p class="text-base leading-relaxed text-slate-700 dark:text-slate-300">
-          Wir planen und realisieren KNX-Systeme für Wohn- und Gewerbeobjekte. Von der
-          Grundkonzeption bis zur Inbetriebnahme erhalten Sie eine durchgängige Lösung aus einer
-          Hand.
-        </p>
-      </div>
+  <main class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <ServiceHero
+      eyebrow="Smart Solutions"
+      title="KNX Gebäudeautomation – Ihr Zuhause denkt mit."
+      lead="Wer heute über modernes Bauen oder Sanieren nachdenkt, kommt an einem Namen nicht vorbei: KNX. Als weltweit führender Standard für die Gebäudeautomation ist KNX nicht nur das Fundament des Smart Homes, sondern eine Investition in die Zukunft. Egal ob moderner Neubau oder charakterstarker Altbau – wir machen Ihr Zuhause intelligent."
+      reason="automation"
+    />
 
-      <div class="mt-12 grid gap-6 md:grid-cols-3">
-        <article
-          class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/85"
-        >
-          <h2 class="text-lg font-semibold">Planung</h2>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Bedarfsanalyse, Strukturplanung und sinnvolle Szenarien für Licht, Beschattung,
-            Sicherheit und Energie.
-          </p>
-        </article>
-        <article
-          class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/85"
-        >
-          <h2 class="text-lg font-semibold">Installation</h2>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Fachgerechte Umsetzung inklusive sauberer Dokumentation und Koordination mit
-            angrenzenden Gewerken.
-          </p>
-        </article>
-        <article
-          class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/85"
-        >
-          <h2 class="text-lg font-semibold">Inbetriebnahme</h2>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Parametrierung, Feinschliff und Einweisung für ein stabiles, intuitiv bedienbares
-            System.
-          </p>
-        </article>
-      </div>
+    <FeatureGrid
+      eyebrow="Warum KNX?"
+      heading="Das Beste aus allen Welten"
+      intro="KNX ist kein geschlossenes System, sondern ein offenes Bussystem. Das bedeutet konkret für Sie:"
+      features={whyKnx}
+      columns={3}
+    />
 
-      <div class="mt-12">
-        <a
-          href={withBase('/kontakt')}
-          class="inline-flex items-center justify-center rounded-full bg-sky-500 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2"
+    <FeatureGrid
+      eyebrow="Vom 'bedienbaren' zum 'mitdenkenden' Haus"
+      heading="Smart Home, das wirklich smart ist"
+      intro="Viele verstehen unter Smart Home lediglich das Steuern per App. Wir gehen einen Schritt weiter. Ihr Haus denkt für Sie mit, damit Sie den Kopf für die wichtigen Dinge frei haben."
+      features={smartHomeFeatures}
+      columns={2}
+      variant="muted"
+    />
+
+    <section class="py-20 sm:py-24">
+      <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div
+          class="grid gap-8 rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:p-12 dark:border-slate-800 dark:bg-slate-900/85"
         >
-          KNX Projekt anfragen
-        </a>
+          <div class="space-y-4">
+            <p
+              class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300"
+            >
+              Verbunden mit Ihrer Energie
+            </p>
+            <h2
+              class="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl dark:text-slate-50"
+            >
+              KNX trifft Photovoltaik & Wärmepumpe
+            </h2>
+            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Ihr KNX-System spricht mit Ihrer PV-Anlage, Ihrem Batteriespeicher und Ihrer
+              Wärmepumpe. So wird Energie genau dann verbraucht, wenn sie auf Ihrem Dach
+              entsteht – und Ihr Zuhause wird zum Energie-Dirigenten.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3 lg:justify-end">
+            <a
+              href={withBase('/photovoltaik')}
+              class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 transition hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500/70 dark:hover:text-sky-300"
+            >
+              Photovoltaik
+              <span aria-hidden="true">→</span>
+            </a>
+            <a
+              href={withBase('/waermepumpe')}
+              class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 transition hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500/70 dark:hover:text-sky-300"
+            >
+              Wärmepumpe
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
+
+    <PartnerLogos
+      eyebrow="Zertifiziert"
+      heading="KNX Partner"
+      intro="Als zertifizierter KNX Partner planen, programmieren und übergeben wir Ihre Anlage nach den offiziellen Qualitätsstandards der KNX Association."
+      logos={[{ src: '/partners/knx.svg', alt: 'KNX Partner', label: 'KNX Partner' }]}
+    />
+
+    <CtaBanner
+      reason="automation"
+      heading="Lassen Sie uns Ihr Smart Home gemeinsam denken."
+      subline="In einem unverbindlichen Gespräch erfassen wir Ihre Anforderungen, klären den passenden Funktionsumfang und zeigen Ihnen, wie sich KNX wirtschaftlich in Ihr Vorhaben einfügt."
+    />
   </main>
 </Layout>
