@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { withBase } from '../utils/url'
+
+const thankYouUrl = new URL(withBase('/kontakt/danke/'), Astro.site).href
 ---
 
 <Layout>
@@ -97,8 +100,11 @@ import Layout from '../layouts/Layout.astro'
         <!-- Contact form -->
         <div class="mt-12 lg:mt-0">
           <form
+            action="https://formspree.io/f/xqejznwy"
+            method="POST"
             class="space-y-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.08)] backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-[0_18px_50px_rgba(15,23,42,0.9)] sm:p-8"
           >
+            <input type="hidden" name="_next" value={thankYouUrl} />
             <h2 class="text-lg font-medium tracking-tight text-slate-900 dark:text-slate-50">
               Schreiben Sie uns eine Nachricht
             </h2>
@@ -397,8 +403,6 @@ import Layout from '../layouts/Layout.astro'
 
   <script>
     // Pre-fill the contact form based on URL query params (?reason=...&meeting=1).
-    // This wires every "Gesprächstermin vereinbaren" CTA across the site directly
-    // into the form's reason select and the meeting checkbox.
     const params = new URLSearchParams(window.location.search)
     const reason = params.get('reason')
     if (reason) {

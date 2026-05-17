@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { withBase } from '../../utils/url'
+---
+
+<Layout>
+  <main
+    class="flex min-h-[calc(100vh-8rem)] items-center justify-center bg-slate-100 px-6 py-20 dark:bg-slate-900"
+  >
+    <div
+      class="w-full max-w-lg rounded-lg border border-slate-200 bg-slate-50 px-10 py-12 shadow-sm dark:border-slate-700 dark:bg-slate-800/80"
+    >
+      <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
+        Vielen Dank!
+      </h1>
+      <p class="mt-3 text-base text-slate-600 dark:text-slate-300">
+        Ihre Nachricht wurde erfolgreich übermittelt.
+      </p>
+      <a
+        href={withBase('/kontakt/')}
+        class="mt-8 inline-block text-sm font-bold text-rose-600 transition hover:text-rose-500 dark:text-rose-400 dark:hover:text-rose-300"
+      >
+        Zurück
+      </a>
+    </div>
+  </main>
+</Layout>
