@@ -1,0 +1,178 @@
+---
+import Layout from '../layouts/Layout.astro'
+import FeatureGrid from '../components/FeatureGrid.astro'
+import CtaBanner from '../components/CtaBanner.astro'
+import ServiceTierCards from '../components/ServiceTierCards.astro'
+import { withBase } from '../utils/url'
+
+const ctaHref = withBase('/kontakt?reason=drohnenflug&meeting=1')
+
+const tiers = [
+  {
+    title: 'Picture2Fly',
+    features: [
+      'Professioneller Drohnenflug vor Ort',
+      'Zwei hochauflösende Luftaufnahmen',
+      'Ideal für Immobilien, Grundstücke und Dokumentation'
+    ],
+    priceLabel: 'Ab 379 €',
+    image: '/drohnenflug/drone-black.png',
+    imageAlt: 'Yuneec Typhoon H – Drohne für Luftaufnahmen'
+  },
+  {
+    title: 'Video2Fly',
+    features: [
+      'Drohnenflug mit professioneller Videoaufnahme',
+      'Flüssige Kameraführung per 3-Achsen-Gimbal',
+      'Ideal für Baustellen, Events und Imagefilme'
+    ],
+    priceLabel: 'Preis auf Anfrage',
+    priceNote: 'Individuelles Angebot nach Umfang',
+    highlighted: true,
+    image: '/drohnenflug/drone-orange.png',
+    imageAlt: 'Yuneec Typhoon H – Drohne für Videoaufnahmen'
+  },
+  {
+    title: 'Measurement2Fly',
+    features: [
+      'Präzise Vermessung aus der Luft',
+      'Orthofotos und Geländemodelle für Planung',
+      'Ideal für Baugrundstücke, Bestandsaufnahmen und Dokumentation'
+    ],
+    priceLabel: 'Preis auf Anfrage',
+    priceNote: 'Individuelles Angebot nach Fläche und Aufwand',
+    image: '/drohnenflug/drone-orange.png',
+    imageAlt: 'Yuneec Typhoon H – Drohne für Vermessung'
+  },
+  {
+    title: 'Hot2Fly',
+    features: [
+      'Thermische Luftaufnahmen Ihres Gebäudes',
+      'Erkennung von Wärmebrücken und Energieverlusten',
+      'Auswertung zur gezielten Sanierungsplanung'
+    ],
+    priceLabel: 'Preis auf Anfrage',
+    priceNote: 'Individuelles Angebot nach Objektgröße',
+    image: '/drohnenflug/drone-black.png',
+    imageAlt: 'Yuneec Typhoon H – Drohne für Thermografie'
+  }
+]
+
+const equipmentFeatures = [
+  {
+    icon: '✈',
+    title: 'Yuneec Typhoon H',
+    description:
+      'Hexacopter mit redundanter Motorik, 3-Achsen-Gimbal und Hinderniserkennung – stabil und präzise auch bei anspruchsvollen Einsätzen.'
+  },
+  {
+    icon: '◉',
+    title: 'Thermografie-Kamera',
+    description:
+      'Wärmebildaufnahmen machen unsichtbare Energieverluste sichtbar – die Grundlage für gezielte Dämm- und Sanierungsmaßnahmen.'
+  },
+  {
+    icon: '✓',
+    title: 'Rechtssichere Flüge',
+    description:
+      'Planung und Durchführung nach geltenden Vorschriften – inklusive Genehmigungen und Luftraumprüfung, wo erforderlich.'
+  },
+  {
+    icon: '◎',
+    title: 'Auswertung & Beratung',
+    description:
+      'Sie erhalten verwertbare Ergebnisse und eine verständliche Einordnung – persönlich durch CT-Net, powered by Yuneec.'
+  }
+]
+---
+
+<Layout>
+  <main class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <section class="relative isolate overflow-hidden border-b border-slate-800 bg-black text-white">
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_30%,rgba(34,211,238,0.18),transparent_50%),radial-gradient(circle_at_85%_70%,rgba(56,189,248,0.12),transparent_45%)]"
+      >
+      </div>
+
+      <div class="mx-auto w-full max-w-7xl px-6 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+        <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12">
+          <div class="space-y-6">
+            <img
+              src={withBase('/drohnenflug/ctn-skyeye.png')}
+              alt="CTN-SKYEYE – Powered by Yuneec"
+              class="h-auto w-full max-w-md"
+              width="640"
+              height="200"
+            />
+            <p
+              class="inline-flex items-center rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-cyan-300"
+            >
+              Drohnendienstleistungen
+            </p>
+            <h1 class="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+              We fly your mission.
+            </h1>
+            <p class="max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
+              Professionelle Luftaufnahmen aus einer Hand – Picture2Fly, Video2Fly, Measurement2Fly
+              und Hot2Fly für Immobilien, Gebäude und Projekte. Powered by Yuneec.
+            </p>
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href={ctaHref}
+                class="inline-flex items-center justify-center rounded-full bg-cyan-400 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-[0_16px_40px_rgba(34,211,238,0.45)] transition hover:-translate-y-0.5 hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              >
+                Gesprächstermin vereinbaren
+              </a>
+              <span class="text-xs font-medium uppercase tracking-[0.2em] text-slate-500">
+                Picture2Fly · Video2Fly · Measurement2Fly · Hot2Fly
+              </span>
+            </div>
+          </div>
+
+          <div class="relative flex items-end justify-center lg:justify-end">
+            <img
+              src={withBase('/drohnenflug/drone-black.png')}
+              alt="Yuneec Typhoon H Hexacopter"
+              class="relative z-10 max-h-[320px] w-auto object-contain sm:max-h-[380px]"
+              width="600"
+              height="400"
+            />
+            <img
+              src={withBase('/drohnenflug/fliegerlady.png')}
+              alt="CTN Fliegerin mit Logo"
+              class="absolute -bottom-4 -left-4 z-20 hidden max-h-[280px] w-auto object-contain sm:block lg:-left-8"
+              width="320"
+              height="400"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ServiceTierCards
+      eyebrow="Pakete"
+      heading="Vier Pakete – vom Luftbild bis zur Thermo-Analyse."
+      intro="Wählen Sie das passende Paket für Ihr Vorhaben. Alle Anfragen laufen über unser Kontaktformular – wir melden uns mit einem konkreten Angebot."
+      tiers={tiers}
+      reason="drohnenflug"
+    />
+
+    <FeatureGrid
+      eyebrow="Technik & Sicherheit"
+      heading="Professionelle Ausstattung, verantwortungsvoll eingesetzt."
+      intro="CTN-SKYEYE setzt auf bewährte Yuneec-Technik und die Erfahrung von CT-Net in Planung und Umsetzung."
+      features={equipmentFeatures}
+      columns={4}
+      variant="muted"
+    />
+
+    <CtaBanner
+      reason="drohnenflug"
+      heading="Bereit für Ihren Drohnenflug?"
+      subline="Schildern Sie uns Objekt, Zweck und gewünschtes Paket – wir prüfen Luftraum, Wetter und Machbarkeit und melden uns mit einem unverbindlichen Angebot."
+      ctaLabel="Drohnenflug anfragen"
+    />
+  </main>
+</Layout>

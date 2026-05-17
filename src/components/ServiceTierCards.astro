@@ -1,0 +1,157 @@
+---
+import { withBase } from '../utils/url'
+
+export interface ServiceTier {
+  tier?: string
+  title: string
+  features: string[]
+  priceLabel: string
+  priceNote?: string
+  highlighted?: boolean
+  image?: string
+  imageAlt?: string
+}
+
+interface Props {
+  eyebrow?: string
+  heading?: string
+  intro?: string
+  tiers: ServiceTier[]
+  reason: string
+  ctaLabel?: string
+}
+
+const {
+  eyebrow,
+  heading,
+  intro,
+  tiers,
+  reason,
+  ctaLabel = 'Jetzt anfragen'
+} = Astro.props
+
+const ctaHref = withBase(`/kontakt?reason=${reason}&meeting=1`)
+
+const gridClass =
+  tiers.length >= 4
+    ? 'grid gap-8 sm:grid-cols-2 xl:grid-cols-4'
+    : tiers.length === 2
+      ? 'grid gap-8 md:grid-cols-2'
+      : 'grid gap-8 lg:grid-cols-3'
+---
+
+<section class="py-20 sm:py-24">
+  <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+    {
+      (eyebrow || heading || intro) && (
+        <div class="mb-12 max-w-3xl space-y-3">
+          {eyebrow && (
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300">
+              {eyebrow}
+            </p>
+          )}
+          {heading && (
+            <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50">
+              {heading}
+            </h2>
+          )}
+          {intro && (
+            <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">{intro}</p>
+          )}
+        </div>
+      )
+    }
+
+    <div class={gridClass}>
+      {
+        tiers.map(tier => (
+          <article
+            class:list={[
+              'relative flex flex-col overflow-hidden rounded-3xl border bg-white p-8 shadow-[0_18px_38px_rgba(15,23,42,0.08)] transition dark:bg-slate-900/85 dark:shadow-[0_18px_38px_rgba(2,6,23,0.5)]',
+              tier.highlighted
+                ? 'border-cyan-400/60 ring-2 ring-cyan-400/30 lg:-translate-y-1 lg:scale-[1.02]'
+                : 'border-slate-200 dark:border-slate-800'
+            ]}
+          >
+            {tier.highlighted && (
+              <span class="absolute right-6 top-6 rounded-full bg-cyan-500/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
+                Beliebt
+              </span>
+            )}
+
+            {tier.tier && (
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
+                {tier.tier}
+              </p>
+            )}
+            <h3
+              class:list={[
+                'text-2xl font-semibold text-slate-900 dark:text-slate-50',
+                tier.tier ? 'mt-2' : ''
+              ]}
+            >
+              {tier.title}
+            </h3>
+
+            {
+              tier.image && (
+                <div class="relative -mx-4 mt-6 mb-2 flex h-36 items-center justify-center overflow-hidden">
+                  <img
+                    src={withBase(tier.image)}
+                    alt={tier.imageAlt ?? tier.title}
+                    class="max-h-full w-auto object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              )
+            }
+
+            <ul class="mt-6 flex-1 space-y-3">
+              {
+                tier.features.map(feature => (
+                  <li class="flex gap-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-xs text-cyan-600 dark:text-cyan-300"
+                      aria-hidden="true"
+                    >
+                      ✓
+                    </span>
+                    {feature}
+                  </li>
+                ))
+              }
+            </ul>
+
+            <div class="mt-8 border-t border-slate-200 pt-6 dark:border-slate-800">
+              <p
+                class:list={[
+                  'text-3xl font-semibold tracking-tight',
+                  tier.priceNote
+                    ? 'text-slate-500 dark:text-slate-400'
+                    : 'text-cyan-600 dark:text-cyan-300'
+                ]}
+              >
+                {tier.priceLabel}
+              </p>
+              {tier.priceNote && (
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{tier.priceNote}</p>
+              )}
+            </div>
+
+            <a
+              href={ctaHref}
+              class:list={[
+                'mt-6 inline-flex items-center justify-center rounded-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900',
+                tier.highlighted
+                  ? 'bg-cyan-400 text-slate-950 shadow-[0_14px_36px_rgba(34,211,238,0.45)] hover:-translate-y-0.5 hover:bg-cyan-300 focus-visible:ring-cyan-300'
+                  : 'border border-slate-300 bg-white text-slate-900 hover:border-cyan-400 hover:text-cyan-700 focus-visible:ring-cyan-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-cyan-500/70 dark:hover:text-cyan-300'
+              ]}
+            >
+              {ctaLabel}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
