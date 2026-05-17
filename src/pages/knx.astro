@@ -4,8 +4,6 @@ import ServiceHero from '../components/ServiceHero.astro'
 import FeatureGrid from '../components/FeatureGrid.astro'
 import PartnerLogos from '../components/PartnerLogos.astro'
 import CtaBanner from '../components/CtaBanner.astro'
-import { withBase } from '../utils/url'
-
 const whyKnx = [
   {
     icon: '∞',
@@ -105,14 +103,14 @@ const smartHomeFeatures = [
           </div>
           <div class="flex flex-wrap gap-3 lg:justify-end">
             <a
-              href={withBase('/photovoltaik')}
+              href="/photovoltaik"
               class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 transition hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500/70 dark:hover:text-sky-300"
             >
               Photovoltaik
               <span aria-hidden="true">→</span>
             </a>
             <a
-              href={withBase('/waermepumpe')}
+              href="/waermepumpe"
               class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 transition hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500/70 dark:hover:text-sky-300"
             >
               Wärmepumpe

@@ -3,9 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import FeatureGrid from '../components/FeatureGrid.astro'
 import CtaBanner from '../components/CtaBanner.astro'
 import ServiceTierCards from '../components/ServiceTierCards.astro'
-import { withBase } from '../utils/url'
-
-const ctaHref = withBase('/kontakt?reason=drohnenflug&meeting=1')
+const ctaHref = '/kontakt?reason=drohnenflug&meeting=1'
 
 const tiers = [
   {
@@ -99,7 +97,7 @@ const equipmentFeatures = [
         <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12">
           <div class="space-y-6">
             <img
-              src={withBase('/drohnenflug/ctn-skyeye.png')}
+              src="/drohnenflug/ctn-skyeye.png"
               alt="CTN-SKYEYE – Powered by Yuneec"
               class="h-auto w-full max-w-md"
               width="640"
@@ -132,14 +130,14 @@ const equipmentFeatures = [
 
           <div class="relative flex items-end justify-center lg:justify-end">
             <img
-              src={withBase('/drohnenflug/drone-black.png')}
+              src="/drohnenflug/drone-black.png"
               alt="Yuneec Typhoon H Hexacopter"
               class="relative z-10 max-h-[320px] w-auto object-contain sm:max-h-[380px]"
               width="600"
               height="400"
             />
             <img
-              src={withBase('/drohnenflug/fliegerlady.png')}
+              src="/drohnenflug/fliegerlady.png"
               alt="CTN Fliegerin mit Logo"
               class="absolute -bottom-4 -left-4 z-20 hidden max-h-[280px] w-auto object-contain sm:block lg:-left-8"
               width="320"

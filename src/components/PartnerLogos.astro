@@ -1,6 +1,4 @@
 ---
-import { withBase } from '../utils/url'
-
 interface Logo {
   src: string
   alt: string
@@ -46,7 +44,7 @@ const { eyebrow = 'Partner', heading, intro, logos } = Astro.props
             data-partner-logo
           >
             <img
-              src={withBase(logo.src)}
+              src={logo.src}
               alt={logo.alt}
               loading="lazy"
               decoding="async"

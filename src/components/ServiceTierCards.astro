@@ -1,6 +1,4 @@
 ---
-import { withBase } from '../utils/url'
-
 export interface ServiceTier {
   tier?: string
   title: string
@@ -30,7 +28,7 @@ const {
   ctaLabel = 'Jetzt anfragen'
 } = Astro.props
 
-const ctaHref = withBase(`/kontakt?reason=${reason}&meeting=1`)
+const ctaHref = `/kontakt?reason=${reason}&meeting=1`
 
 const gridClass =
   tiers.length >= 4
@@ -97,7 +95,7 @@ const gridClass =
               tier.image && (
                 <div class="relative -mx-4 mt-6 mb-2 flex h-36 items-center justify-center overflow-hidden">
                   <img
-                    src={withBase(tier.image)}
+                    src={tier.image}
                     alt={tier.imageAlt ?? tier.title}
                     class="max-h-full w-auto object-contain"
                     loading="lazy"

@@ -4,8 +4,6 @@ import ServiceHero from '../components/ServiceHero.astro'
 import FeatureGrid from '../components/FeatureGrid.astro'
 import PartnerLogos from '../components/PartnerLogos.astro'
 import CtaBanner from '../components/CtaBanner.astro'
-import { withBase } from '../utils/url'
-
 const itFeatures = [
   {
     icon: '⌬',
@@ -106,7 +104,7 @@ const itFeatures = [
               </p>
             </div>
             <a
-              href={withBase('/kontakt?reason=it-services&meeting=1')}
+              href="/kontakt?reason=it-services&meeting=1"
               class="inline-flex items-center justify-center gap-2 self-start rounded-full bg-sky-500 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-[0_16px_40px_rgba(14,165,233,0.45)] transition hover:-translate-y-0.5 hover:bg-sky-400 hover:shadow-[0_18px_45px_rgba(14,165,233,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2"
             >
               Gesprächstermin vereinbaren

@@ -1,6 +1,4 @@
 ---
-import { withBase } from '../utils/url'
-
 interface Props {
   reason: string
   heading?: string
@@ -15,7 +13,7 @@ const {
   ctaLabel = 'Gesprächstermin vereinbaren'
 } = Astro.props
 
-const ctaHref = withBase(`/kontakt?reason=${reason}&meeting=1`)
+const ctaHref = `/kontakt?reason=${reason}&meeting=1`
 ---
 
 <section class="relative isolate overflow-hidden py-20 sm:py-24">

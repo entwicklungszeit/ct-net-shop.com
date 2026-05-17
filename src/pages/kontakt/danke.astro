@@ -1,6 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-import { withBase } from '../../utils/url'
 ---
 
 <Layout>
@@ -17,7 +16,7 @@ import { withBase } from '../../utils/url'
         Ihre Nachricht wurde erfolgreich übermittelt.
       </p>
       <a
-        href={withBase('/kontakt/')}
+        href="/kontakt/"
         class="mt-8 inline-block text-sm font-bold text-rose-600 transition hover:text-rose-500 dark:text-rose-400 dark:hover:text-rose-300"
       >
         Zurück
