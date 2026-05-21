@@ -13,7 +13,7 @@ export const partnerLogos: PartnerLogo[] = [
   { src: '/partners/knx.svg', alt: 'KNX Partner', label: 'KNX' },
   { src: '/partners/sma.svg', alt: 'SMA Solar Technology', label: 'SMA' },
   { src: '/partners/huawei.svg', alt: 'Huawei FusionSolar', label: 'Huawei', darkPad: true },
-  { src: '/partners/lg.svg', alt: 'LG Energy Solution', label: 'LG' },
+  { src: '/partners/lg.svg', alt: 'LG Energy Solution', label: 'LG', lightTile: true },
   { src: '/partners/hager.svg', alt: 'Hager', label: 'Hager' },
   { src: '/partners/wuerth.svg', alt: 'Würth', label: 'Würth', lightTile: true },
   { src: '/partners/avm.svg', alt: 'AVM', label: 'AVM', darkPad: true },
