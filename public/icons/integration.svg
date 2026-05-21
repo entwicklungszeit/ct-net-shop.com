@@ -1,0 +1,49 @@
+<svg viewBox="0 0 151 228" version="1.1" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;" width="100%" height="100%" fill="none" aria-hidden="true">
+    <g transform="matrix(1,0,0,1,-79.567439,-39.113863)">
+        <g id="Integration">
+            <g id="Handy" transform="matrix(1.080476,0,0,1.080476,-6.674968,-3.419439)">
+                <path d="M156.73,214.92L102.944,214.92C91.898,214.92 82.944,205.966 82.944,194.92L82.944,62.49C82.944,51.445 91.898,42.49 102.944,42.49L171.355,42.49C182.401,42.49 191.355,51.445 191.355,62.49C191.355,62.49 197.574,131.641 192.807,146.678C192.296,148.288 189.904,153 189.904,153C168.243,196.324 176.314,122.75 152.103,120.06C151.779,120.024 130.662,119.235 146.028,149.967C165.826,189.563 156.996,203.601 155.841,223.331C155.802,223.996 155.903,222.731 155.841,223.331" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                <path d="M201.805,223.53C223.167,180.808 214.005,145.569 212.112,138.841C210.453,132.943 195.073,96.259 193.653,94.839" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                <g transform="matrix(1,0,0,1,3,0)">
+                    <path d="M209.112,230.712L209.112,241.679C209.112,244.706 206.655,247.163 203.628,247.163L147.128,247.163C144.102,247.163 141.645,244.706 141.645,241.679L141.645,230.712C141.645,227.685 144.102,225.228 147.128,225.228L203.628,225.228C206.655,225.228 209.112,227.685 209.112,230.712Z" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                </g>
+                <g>
+                    <g>
+                        <circle cx="101.11" cy="132.852" r="4.147" style="stroke:currentColor;stroke-width:1.67px;"/>
+                        <path d="M117.523,132.852L140.478,132.852" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,0,26.427371)">
+                        <circle cx="101.11" cy="132.852" r="4.147" style="stroke:currentColor;stroke-width:1.67px;"/>
+                        <path d="M117.523,132.852L150.371,132.852" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,0,52.854742)">
+                        <circle cx="101.11" cy="132.852" r="4.147" style="stroke:currentColor;stroke-width:1.67px;"/>
+                        <path d="M117.523,132.852L158.183,132.852" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                    </g>
+                </g>
+            </g>
+            <g id="Netzwerk" transform="matrix(-0.557748,0,-0,-0.557748,236.311299,194.755674)">
+                <path d="M121.955,187.219L142.884,184.603" style="fill:none;stroke:currentColor;stroke-width:8.96px;"/>
+                <path d="M193.424,194.083L219.269,217.278" style="fill:none;stroke:currentColor;stroke-width:8.96px;"/>
+                <g transform="matrix(1,0,0,1,-130.60417,-40.082836)">
+                    <circle cx="232.992" cy="231.98" r="20.115" style="fill:none;stroke:currentColor;stroke-width:8.96px;"/>
+                </g>
+                <circle cx="232.992" cy="231.98" r="20.115" style="fill:none;stroke:currentColor;stroke-width:8.96px;"/>
+                <g transform="matrix(1,0,0,1,72.002917,32.843824)">
+                    <circle cx="99.451" cy="138.939" r="31.311" style="fill:none;stroke:currentColor;stroke-width:8.96px;"/>
+                </g>
+                <g id="WIFI" transform="matrix(-0.485419,-0,0,-0.485419,244.266732,244.399526)">
+                    <g transform="matrix(1,0,0,1,-3.03739,9.473068)">
+                        <path d="M110.047,132.374C140.597,109.071 169.216,109.572 196.028,132.374" style="fill:none;stroke:currentColor;stroke-width:10.89px;"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,-1.208519,8.538481)">
+                        <path d="M127.417,150C143.889,137.784 159.774,137.294 175,150" style="fill:none;stroke:currentColor;stroke-width:10.89px;"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,0,-4)">
+                        <path d="M150,178.636L150,178.169" style="fill:none;stroke:currentColor;stroke-width:10.89px;"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

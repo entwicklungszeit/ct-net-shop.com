@@ -1,0 +1,34 @@
+<svg viewBox="0 0 209 256" version="1.1" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;" width="100%" height="100%" fill="none" aria-hidden="true">
+    <g transform="matrix(1,0,0,1,-45.814123,-22.344375)">
+        <g id="Anmeldung" transform="matrix(1.232898,0,0,1.232898,-31.311364,-19.796122)">
+            <g transform="matrix(1,0,0,0.917391,0,3.081719)">
+                <path d="M228.441,53.272L228.441,240.254C228.441,249.067 221.877,256.222 213.793,256.222L80.33,256.222C72.245,256.222 65.681,249.067 65.681,240.254L65.681,53.272C65.681,44.46 72.245,37.305 80.33,37.305L213.793,37.305C221.877,37.305 228.441,44.46 228.441,53.272Z" style="fill:none;stroke:currentColor;stroke-width:6.51px;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,0,-1.814886)">
+                <g transform="matrix(1,0,0,1,0,41.013182)">
+                    <path d="M87.573,67.763L206.549,67.763" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,61.519773)">
+                    <path d="M87.573,67.763L206.549,67.763" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,82.026364)">
+                    <path d="M87.573,67.763L206.549,67.763" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,102.532955)">
+                    <path d="M87.573,67.763L206.549,67.763" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,123.039546)">
+                    <path d="M87.573,67.763L206.549,67.763" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,143.546137)">
+                    <path d="M87.573,67.763L206.549,67.763" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                </g>
+            </g>
+            <g transform="matrix(0.811097,0,0,0.811097,20.892653,11.424509)">
+                <g transform="matrix(50,0,0,50,221.165652,93.108517)">
+                </g>
+                <text x="90.428px" y="93.109px" style="font-family:'ArialRoundedMTBold', 'Arial Rounded MT Bold', sans-serif;font-size:50px;">E V U</text>
+            </g>
+        </g>
+    </g>
+</svg>

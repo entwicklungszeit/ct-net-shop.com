@@ -1,43 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
-const services = [
-  {
-    title: 'KNX Smart Home',
-    href: '/knx',
-    description:
-      'Intelligente Hausautomation, die für Sie mitdenkt – Licht, Beschattung, Heizung und Sicherheit nahtlos vereint.'
-  },
-  {
-    title: 'Photovoltaik',
-    href: '/photovoltaik',
-    description:
-      'Werden Sie Ihr eigener Energieversorger. PV, Speicher, Wallbox und App-Steuerung aus einer Hand.'
-  },
-  {
-    title: 'Wärmepumpe',
-    href: '/waermepumpe',
-    description:
-      'Elektrischer Anschluss, Anmeldung beim Energieversorger und PV-Kopplung – sauber abgestimmt mit Ihrem Heizungsbauer.'
-  },
-  {
-    title: 'IT-Infrastruktur',
-    href: '/it',
-    description:
-      'Schluss mit Funklöchern und instabilem WLAN. Wir liefern Netzwerke, Sicherheit und Backups, die einfach funktionieren.'
-  },
-  {
-    title: 'Elektroinstallation',
-    href: '/elektroinstallation',
-    description:
-      'Das sichere Fundament jedes Gebäudes – vom Neubau bis zur Sanierung, inklusive Beleuchtung und Schutztechnik.'
-  },
-  {
-    title: 'CTN-SKYEYE Drohnenflug',
-    href: '/drohnenflug',
-    description:
-      'Picture2Fly, Video2Fly, Measurement2Fly und Hot2Fly – professionelle Luftaufnahmen. Ab 350 € mit Picture2Fly.'
-  }
-]
+import Icon from '../components/Icon.astro'
+import { services } from '../data/services'
 
 const processSteps = [
   {
@@ -139,13 +103,15 @@ const processSteps = [
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
-          services.map((service, index) => (
+          services.map(service => (
             <a
               href={service.href}
               class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_38px_rgba(15,23,42,0.08)] transition hover:-translate-y-1 hover:border-sky-300 hover:shadow-[0_22px_45px_rgba(14,165,233,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 dark:border-slate-800 dark:bg-slate-900/85 dark:hover:border-sky-500/70"
             >
-              <div class="absolute right-5 top-5 text-xs font-semibold tracking-[0.2em] text-slate-400">
-                0{index + 1}
+              <div
+                class="absolute right-5 top-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 ring-1 ring-inset ring-sky-500/20 dark:bg-sky-400/10 dark:text-sky-300 dark:ring-sky-400/30"
+              >
+                <Icon name={service.icon} class="h-5 w-5" />
               </div>
               <h3 class="text-2xl font-semibold text-slate-900 transition group-hover:text-sky-600 dark:text-slate-50 dark:group-hover:text-sky-300">
                 {service.title}

@@ -1,4 +1,7 @@
 ---
+import Icon from './Icon.astro'
+import type { IconSlug } from '../data/icons'
+
 export interface ServiceTier {
   tier?: string
   title: string
@@ -8,6 +11,7 @@ export interface ServiceTier {
   highlighted?: boolean
   image?: string
   imageAlt?: string
+  icon?: IconSlug
 }
 
 interface Props {
@@ -82,14 +86,23 @@ const gridClass =
                 {tier.tier}
               </p>
             )}
-            <h3
+            <div
               class:list={[
-                'text-2xl font-semibold text-slate-900 dark:text-slate-50',
+                'flex items-start gap-3',
                 tier.tier ? 'mt-2' : ''
               ]}
             >
-              {tier.title}
-            </h3>
+              {
+                tier.icon && (
+                  <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-700 ring-1 ring-inset ring-cyan-500/20 dark:bg-cyan-400/10 dark:text-cyan-300 dark:ring-cyan-400/30">
+                    <Icon name={tier.icon} class="h-5 w-5" />
+                  </span>
+                )
+              }
+              <h3 class="text-2xl font-semibold text-slate-900 dark:text-slate-50">
+                {tier.title}
+              </h3>
+            </div>
 
             {
               tier.image && (

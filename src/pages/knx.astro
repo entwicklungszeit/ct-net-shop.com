@@ -1,24 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Icon from '../components/Icon.astro'
 import ServiceHero from '../components/ServiceHero.astro'
 import FeatureGrid from '../components/FeatureGrid.astro'
 import PartnerLogos from '../components/PartnerLogos.astro'
 import CtaBanner from '../components/CtaBanner.astro'
 const whyKnx = [
   {
-    icon: '∞',
+    icon: 'flexibilitaet',
     title: 'Maximale Flexibilität',
     description:
       'Über 500 namhafte Hersteller bieten KNX-kompatible Geräte an. Sie sind nie an einen Anbieter gebunden und können Ihr System jederzeit erweitern.'
   },
   {
-    icon: '↗',
+    icon: 'zukunft',
     title: 'Zukunftssicherheit',
     description:
       'KNX ist seit Jahrzehnten der weltweit führende Standard für Gebäudeautomation. Ihr System wächst mit Ihren Ansprüchen – heute, morgen und in zehn Jahren.'
   },
   {
-    icon: '◇',
+    icon: 'integration',
     title: 'Nahtlose Integration',
     description:
       'Über individuelle Schnittstellen kommuniziert Ihr Haus mit Sprachassistenten wie Alexa oder Google Assistant – und mit allem, was Sie sonst noch nutzen.'
@@ -27,25 +28,25 @@ const whyKnx = [
 
 const smartHomeFeatures = [
   {
-    icon: '⌂',
+    icon: 'smart-home',
     title: 'Ankommen wie im Film',
     description:
       'Ihr Haus erkennt Sie bei der Ankunft via Smartphone. Die Tür öffnet sich, das Licht dimmt auf Ihre Wohlfühlatmosphäre und Ihre Lieblingsmusik startet automatisch.'
   },
   {
-    icon: '⊞',
+    icon: 'on',
     title: 'Alles im Griff',
     description:
       'Bedienen Sie Licht, Jalousien und Heizung klassisch per Taster im Raum oder bündeln Sie alles auf einem zentralen Wand-Tablet – Sie haben die Wahl.'
   },
   {
-    icon: '⛨',
+    icon: 'kamera',
     title: 'Sicherheit weltweit',
     description:
       'Behalten Sie weltweit den Überblick. Ob Wetterstation, Gartenbewässerung oder der Postbote, der ein Paket sicher im Carport ablegt – Sie haben die Kontrolle.'
   },
   {
-    icon: '⚘',
+    icon: 'renew',
     title: 'Aktive Nachhaltigkeit',
     description:
       'Licht und unnötige Stromfresser schalten sich ab, wenn niemand im Raum ist. Die Heizung regelt automatisch herunter, sobald Sie das Haus verlassen oder ein Fenster öffnen.'
@@ -106,6 +107,7 @@ const smartHomeFeatures = [
               href="/photovoltaik"
               class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 transition hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500/70 dark:hover:text-sky-300"
             >
+              <Icon name="sonne" class="h-4 w-4" />
               Photovoltaik
               <span aria-hidden="true">→</span>
             </a>
@@ -113,6 +115,7 @@ const smartHomeFeatures = [
               href="/waermepumpe"
               class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 transition hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500/70 dark:hover:text-sky-300"
             >
+              <Icon name="schneeflocke" class="h-4 w-4" />
               Wärmepumpe
               <span aria-hidden="true">→</span>
             </a>

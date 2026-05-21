@@ -1,42 +1,6 @@
 ---
-const services = [
-  {
-    title: 'KNX Smart Home',
-    href: '/knx',
-    description:
-      'Intelligente Hausautomation, die für Sie mitdenkt – Licht, Beschattung, Heizung und Sicherheit nahtlos vereint.'
-  },
-  {
-    title: 'Photovoltaik',
-    href: '/photovoltaik',
-    description:
-      'Werden Sie Ihr eigener Energieversorger. PV, Speicher, Wallbox und App-Steuerung aus einer Hand.'
-  },
-  {
-    title: 'Wärmepumpe',
-    href: '/waermepumpe',
-    description:
-      'Elektrischer Anschluss und Anmeldung beim Energieversorger – sauber abgestimmt mit Ihrem Heizungsbauer.'
-  },
-  {
-    title: 'IT-Infrastruktur',
-    href: '/it',
-    description:
-      'Performante Netzwerke, sichere Firewalls und automatisierte Backups – Technik, die einfach funktioniert.'
-  },
-  {
-    title: 'Elektroinstallation',
-    href: '/elektroinstallation',
-    description:
-      'Vom Neubau bis zur Sanierung. Solides Handwerk, moderne Beleuchtung und effektiver Schutz.'
-  },
-  {
-    title: 'CTN-SKYEYE Drohnenflug',
-    href: '/drohnenflug',
-    description:
-      'Picture2Fly, Video2Fly, Measurement2Fly und Hot2Fly – professionell geplant und durchgeführt.'
-  }
-]
+import Icon from './Icon.astro'
+import { services } from '../data/services'
 ---
 
 <header
@@ -143,14 +107,16 @@ const services = [
     </p>
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {
-        services.map((service, index) => (
+        services.map(service => (
           <a
             href={service.href}
             data-megamenu-close
             class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_8px_24px_rgba(15,23,42,0.07)] transition hover:-translate-y-0.5 hover:border-sky-300 hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 dark:border-slate-800 dark:bg-slate-900/85 dark:hover:border-sky-500/70"
           >
-            <div class="absolute right-4 top-4 text-xs font-semibold tracking-[0.2em] text-slate-300 dark:text-slate-600">
-              0{index + 1}
+            <div
+              class="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 ring-1 ring-inset ring-sky-500/20 dark:bg-sky-400/10 dark:text-sky-300 dark:ring-sky-400/30"
+            >
+              <Icon name={service.icon} class="h-4 w-4" />
             </div>
             <h3 class="text-xl font-semibold text-slate-900 transition group-hover:text-sky-600 dark:text-slate-50 dark:group-hover:text-sky-300">
               {service.title}

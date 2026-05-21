@@ -1,0 +1,18 @@
+<svg viewBox="0 0 360 360" version="1.1" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;" width="100%" height="100%" fill="none" aria-hidden="true">
+    <g transform="matrix(1,0,0,1,29.867198,29.867198)">
+        <g id="Renew" transform="matrix(1.605217,0.606003,-0.606003,1.605217,0.117868,-181.683011)">
+            <g transform="matrix(1,0,0,1,-11.537856,-20.306311)">
+                <g transform="matrix(0.545257,-0.205846,0.205846,0.545257,26.438963,109.257329)">
+                    <path d="M303.452,159.056L265.911,187.127L237.84,149.586" style="fill:none;stroke:currentColor;stroke-width:14.3px;"/>
+                    <path d="M104.963,136.918C125.651,100.759 170.151,83.919 210.359,99.098C247.283,113.038 269.08,149.637 265.911,187.127" style="fill:none;stroke:currentColor;stroke-width:14.3px;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,1,-11.537856,-20.306311)">
+                <g transform="matrix(0.545257,-0.205846,0.205846,0.545257,26.438963,109.257329)">
+                    <path d="M56.282,200.679L93.823,172.608L121.894,210.149" style="fill:none;stroke:currentColor;stroke-width:14.3px;"/>
+                    <path d="M254.771,222.817C234.084,258.975 189.583,275.815 149.375,260.636C112.451,246.696 90.655,210.098 93.823,172.608" style="fill:none;stroke:currentColor;stroke-width:14.3px;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

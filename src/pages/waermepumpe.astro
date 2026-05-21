@@ -1,29 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Icon from '../components/Icon.astro'
 import ServiceHero from '../components/ServiceHero.astro'
 import FeatureGrid from '../components/FeatureGrid.astro'
 import CtaBanner from '../components/CtaBanner.astro'
 const services = [
   {
-    icon: '⚡',
+    icon: 'blitz',
     title: 'Elektrischer Anschluss',
     description:
       'Wir übernehmen die fachgerechten elektrischen Anschlussarbeiten Ihrer Wärmepumpe – von der Vorbereitung der Zuleitung bis zum normgerechten Aufschalten im Schaltschrank.'
   },
   {
-    icon: '✎',
+    icon: 'anmeldung',
     title: 'Anmeldung Energieversorger',
     description:
       'Wir kümmern uns um die vollständige Anmeldung beim Netzbetreiber inklusive § 14a EnWG, damit Sie alle Förderungen und Tarifvorteile rechtssicher nutzen können.'
   },
   {
-    icon: '◈',
+    icon: 'energiemanagement',
     title: 'Lastmanagement & PV-Kopplung',
     description:
       'Mit cleverem Energiemanagement koppeln wir Ihre Wärmepumpe an Ihre PV-Anlage und Ihren Speicher. Heizen mit Sonne – immer dann, wenn Strom günstig oder selbst erzeugt ist.'
   },
   {
-    icon: '⊞',
+    icon: 'handschlag',
     title: 'Koordination mit Heizungsbauer',
     description:
       'Wir arbeiten Hand in Hand mit Ihrem Heizungsinstallateur. Sie haben einen Ansprechpartner für Elektrik – die Schnittstelle ist sauber abgestimmt, Termine greifen ineinander.'
@@ -117,11 +118,16 @@ const handoverSteps = [
           class="group relative flex flex-col gap-4 overflow-hidden rounded-3xl border border-sky-200/70 bg-gradient-to-br from-sky-50 via-white to-amber-50 p-8 transition hover:-translate-y-0.5 hover:border-sky-300 hover:shadow-[0_18px_45px_rgba(14,165,233,0.2)] sm:flex-row sm:items-center sm:justify-between sm:p-10 dark:border-sky-400/20 dark:from-sky-500/10 dark:via-slate-900 dark:to-amber-500/10 dark:hover:border-sky-400/40"
         >
           <div class="space-y-2">
-            <p
-              class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-300"
-            >
-              Komplettes Energie-Bild
-            </p>
+            <div class="flex items-center gap-3">
+              <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-500/15 text-sky-700 ring-1 ring-inset ring-sky-500/25 dark:bg-sky-400/10 dark:text-sky-300 dark:ring-sky-400/30">
+                <Icon name="sonne" class="h-5 w-5" />
+              </span>
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-300"
+              >
+                Komplettes Energie-Bild
+              </p>
+            </div>
             <h2
               class="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl dark:text-slate-50"
             >

@@ -1,0 +1,26 @@
+<svg viewBox="0 0 331 258" version="1.1" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;" width="100%" height="100%" fill="none" aria-hidden="true">
+    <g transform="matrix(1,0,0,1,-14.033527,-48.932574)">
+        <g id="Sanierung" transform="matrix(1.155578,0,0,1.155578,-19.053714,-23.33667)">
+            <g id="Haus" transform="matrix(0.595757,0,0,0.595757,28.512875,64.488795)">
+                <g transform="matrix(1,0,0,1,0,39.997948)">
+                    <path d="M225.833,75.639L150,8.02L52.052,95.358L52.052,239.05L247.948,239.05L247.948,227.841M150,239.05L150,141.503L90.723,141.503L90.723,239.05M52.052,95.358L7.195,135.356M52.052,239.05L17.125,239.05" style="fill:none;stroke:currentColor;stroke-width:13.99px;"/>
+                </g>
+                <path d="M250.845,97.941L150,8.02L7.195,135.356L62.685,83.954L62.685,27.296L90.723,27.296L90.723,58.838" style="fill:none;stroke:currentColor;stroke-width:13.99px;"/>
+            </g>
+            <g id="Renew" transform="matrix(0.855792,0.737516,-0.737516,0.855792,185.21209,-65.117496)">
+                <g transform="matrix(1,0,0,1,-11.537856,-20.306311)">
+                    <g transform="matrix(0.580247,-0.500053,0.500053,0.580247,-19.685274,196.382444)">
+                        <path d="M290.957,148.243L260.66,157.118L251.785,126.821" style="fill:none;stroke:currentColor;stroke-width:9.63px;stroke-linejoin:miter;stroke-miterlimit:10;"/>
+                        <path d="M159.126,78.407C183.353,57.968 219.553,57.554 244.324,78.901C267.306,98.707 273.214,131.01 260.66,157.118" style="fill:none;stroke:currentColor;stroke-width:9.63px;"/>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,-11.537856,-20.306311)">
+                    <g transform="matrix(0.580247,-0.500053,0.500053,0.580247,-19.685274,196.382444)">
+                        <path d="M111.926,109.079L142.223,100.204L151.098,130.502" style="fill:none;stroke:currentColor;stroke-width:9.63px;stroke-linejoin:miter;stroke-miterlimit:10;"/>
+                        <path d="M243.756,178.915C219.53,199.354 183.33,199.768 158.559,178.421C135.576,158.615 129.669,126.312 142.223,100.204" style="fill:none;stroke:currentColor;stroke-width:9.63px;"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg viewBox="0 0 250 250" version="1.1" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;" width="100%" height="100%" fill="none" aria-hidden="true">
+    <g transform="matrix(1,0,0,1,-25.112846,-25.112846)">
+        <g id="ON" transform="matrix(1,0,0,1,0,-8.558462)">
+            <g transform="matrix(1,0,0,1,6.39254,0)">
+                <path d="M265.37,85.501L265.37,231.616C265.37,258.497 243.546,280.321 216.665,280.321L70.55,280.321C43.669,280.321 21.845,258.497 21.845,231.616L21.845,85.501C21.845,58.62 43.669,36.796 70.55,36.796L216.665,36.796C243.546,36.796 265.37,58.62 265.37,85.501Z" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+            </g>
+            <g>
+                <g transform="matrix(1,0,0,1,-6.948609,-0.942921)">
+                    <path d="M171.383,87.945C204.762,94.652 229.935,124.16 229.935,159.501C229.935,199.783 197.231,232.487 156.949,232.487C116.666,232.487 83.963,199.783 83.963,159.501C83.963,123.749 109.726,93.965 143.684,87.72" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,8.558462)">
+                    <path d="M150,55.185L150,96.484" style="fill:none;stroke:currentColor;stroke-width:6.25px;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

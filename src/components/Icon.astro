@@ -1,0 +1,21 @@
+---
+import type { IconSlug } from '../data/icons'
+import { iconLabels, iconSvgBySlug } from '../data/icons'
+
+interface Props {
+  name: IconSlug
+  class?: string
+  label?: string
+}
+
+const { name, class: className = 'h-5 w-5', label } = Astro.props
+const svg = iconSvgBySlug[name]
+const ariaLabel = label ?? iconLabels[name]
+---
+
+<span
+  class:list={['inline-flex shrink-0 items-center justify-center [&_svg]:h-full [&_svg]:w-full', className]}
+  aria-hidden="true"
+  title={ariaLabel}
+  set:html={svg}
+/>
