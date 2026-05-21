@@ -3,6 +3,10 @@ interface Logo {
   src: string
   alt: string
   label: string
+  /** White inset behind the logo in dark mode (logo stays on dark card). */
+  darkPad?: boolean
+  /** Entire card stays white in dark mode, like light mode (for black wordmarks). */
+  lightTile?: boolean
 }
 
 interface Props {
@@ -40,18 +44,36 @@ const { eyebrow = 'Partner', heading, intro, logos } = Astro.props
       {
         logos.map(logo => (
           <li
-            class="group flex h-20 min-w-[160px] flex-1 items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm transition hover:border-sky-300 hover:shadow-[0_12px_30px_rgba(14,165,233,0.15)] dark:border-slate-800 dark:bg-slate-900/70 dark:hover:border-sky-500/60"
+            class:list={[
+              'group flex h-20 min-w-[160px] flex-1 items-center justify-center rounded-2xl border px-5 py-4 shadow-sm transition',
+              'border-slate-200 bg-white hover:border-sky-300 hover:shadow-[0_12px_30px_rgba(14,165,233,0.15)]',
+              logo.lightTile
+                ? 'dark:border-slate-200 dark:bg-white dark:hover:border-sky-300 dark:hover:shadow-[0_12px_30px_rgba(14,165,233,0.15)]'
+                : 'dark:border-slate-800 dark:bg-slate-900/70 dark:hover:border-sky-500/60'
+            ]}
             data-partner-logo
           >
-            <img
-              src={logo.src}
-              alt={logo.alt}
-              loading="lazy"
-              decoding="async"
-              class="max-h-12 w-auto max-w-[140px] opacity-80 transition group-hover:opacity-100 dark:opacity-90 dark:invert dark:brightness-0 dark:contrast-200"
-              data-partner-img
-              data-label={logo.label}
-            />
+            <span
+              class:list={[
+                'inline-flex max-w-full items-center justify-center',
+                logo.darkPad &&
+                  !logo.lightTile &&
+                  'dark:rounded-xl dark:bg-white dark:px-5 dark:py-4 sm:dark:px-6 sm:dark:py-4'
+              ]}
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                loading="lazy"
+                decoding="async"
+                class:list={[
+                  'max-h-12 w-auto max-w-[140px] opacity-80 transition group-hover:opacity-100',
+                  logo.lightTile ? 'dark:opacity-80' : 'dark:opacity-95'
+                ]}
+                data-partner-img
+                data-label={logo.label}
+              />
+            </span>
             <span
               class="hidden text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-300"
               data-partner-fallback
@@ -66,7 +88,7 @@ const { eyebrow = 'Partner', heading, intro, logos } = Astro.props
 </section>
 
 <script>
-  // Show a clean text fallback if a partner logo file is missing or empty.
+  // Show a clean text fallback only when the image file fails to load.
   function applyPartnerFallback(img: HTMLImageElement) {
     const li = img.closest('[data-partner-logo]')
     if (!li) return
@@ -77,13 +99,6 @@ const { eyebrow = 'Partner', heading, intro, logos } = Astro.props
   }
 
   document.querySelectorAll<HTMLImageElement>('[data-partner-img]').forEach(img => {
-    if (img.complete) {
-      if (!img.naturalWidth) applyPartnerFallback(img)
-    } else {
-      img.addEventListener('error', () => applyPartnerFallback(img))
-      img.addEventListener('load', () => {
-        if (!img.naturalWidth) applyPartnerFallback(img)
-      })
-    }
+    img.addEventListener('error', () => applyPartnerFallback(img))
   })
 </script>

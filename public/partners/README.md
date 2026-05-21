@@ -1,19 +1,17 @@
 # Partner-Logos
 
-In diesem Ordner liegen die Partner-Logos, die auf den Service-Unterseiten
-angezeigt werden. Aktuell sind alle Dateien **typografische Platzhalter**
-(SVG mit Markenname). Bitte mit den offiziellen Logos der Hersteller ersetzen.
+In diesem Ordner liegen die offiziellen Partner- und Hersteller-Logos, die auf den Service-Unterseiten angezeigt werden.
 
 ## Erwartete Spezifikationen
 
 - Format: **SVG** (bevorzugt) oder hochauflösendes PNG
-- ViewBox / Maße: **200 × 80** (Breite × Höhe), Logo zentriert
-- Hintergrund: **transparent**
-- Farbe: einfarbig, dunkel (`#0f172a` / Slate 900) –
-  die Komponente invertiert die Logos automatisch im Dark Mode
-- Maximale Anzeigegröße auf der Website: 140 × 48 px
+- Transparenter Hintergrund (keine Vollflächen-Hintergründe in den SVGs)
+- Farbige Markenlogos sind erwünscht; die Komponente invertiert sie **nicht** im Dark Mode
+- Logos mit schwarzen Marken auf dunkler Kachel: `darkPad: true` (weißer Innenabstand nur um das Logo)
+- Würth und Corsair: `lightTile: true` (gesamte Kachel bleibt im Dark Mode weiß wie im Light Mode)
+- Maximale Anzeigegröße auf der Website: 140 × 48 px (über `max-h-12 max-w-[140px]`)
 
-## Erforderliche Dateien
+## Dateien und Verwendung
 
 | Datei            | Verwendet auf Seite                | Hinweis                         |
 | ---------------- | ---------------------------------- | ------------------------------- |
@@ -26,7 +24,10 @@ angezeigt werden. Aktuell sind alle Dateien **typografische Platzhalter**
 | `corsair.svg`    | `/it`                              | Corsair                         |
 | `dlink.svg`      | `/it`                              | D-Link                          |
 | `microsoft.svg`  | `/it`                              | Microsoft                       |
+| `wuerth.svg`     | `/it`, `/elektroinstallation`      | Würth                           |
 | `hager.svg`      | `/elektroinstallation`             | Hager                           |
+
+Die **Startseite** (`/`) zeigt alle Logos in einer Partner-Sektion (Liste in [`src/data/partners.ts`](../../src/data/partners.ts)).
 
 ## Fallback-Verhalten
 

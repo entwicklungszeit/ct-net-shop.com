@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Icon from '../components/Icon.astro'
+import PartnerLogos from '../components/PartnerLogos.astro'
+import { partnerLogos } from '../data/partners'
 import { services } from '../data/services'
 
 const processSteps = [
@@ -130,6 +132,13 @@ const processSteps = [
         }
       </div>
     </section>
+
+    <PartnerLogos
+      eyebrow="Partner & Hersteller"
+      heading="Bewährte Marken – für Lösungen, denen Sie vertrauen können."
+      intro="Ob Smart Home, Photovoltaik, IT oder Elektroinstallation: Wir setzen auf Komponenten namhafter Hersteller und zuverlässige Fachlieferanten. Das spüren Sie in Qualität, Sicherheit und langfristiger Wertbeständigkeit Ihrer Anlage."
+      logos={partnerLogos}
+    />
 
     <section class="relative isolate overflow-hidden border-y border-slate-200 bg-white py-20 dark:border-slate-800 dark:bg-slate-900/40">
       <div
