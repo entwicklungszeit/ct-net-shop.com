@@ -44,7 +44,7 @@ export const services: Service[] = [
       'Das sichere Fundament jedes Gebäudes – vom Neubau bis zur Sanierung, inklusive Beleuchtung und Schutztechnik.'
   },
   {
-    title: 'CTN-SKYEYE Drohnenflug',
+    title: 'SKYEYE Drohnenflug',
     href: '/drohnenflug',
     icon: 'drohne',
     description:
