@@ -6,9 +6,8 @@ In diesem Ordner liegen die offiziellen Partner- und Hersteller-Logos, die auf d
 
 - Format: **SVG** (bevorzugt) oder hochauflösendes PNG
 - Transparenter Hintergrund (keine Vollflächen-Hintergründe in den SVGs)
-- Farbige Markenlogos sind erwünscht; die Komponente invertiert sie **nicht** im Dark Mode
-- Logos mit schwarzen Marken auf dunkler Kachel: `darkPad: true` (weißer Innenabstand nur um das Logo)
-- Würth, Corsair und LG: `lightTile: true` (gesamte Kachel bleibt im Dark Mode weiß wie im Light Mode)
+- Farbige Markenlogos sind erwünscht; die Komponente invertiert sie **nicht**
+- Alle Logos werden auf einer **weißen Kachel** angezeigt – in Light und Dark Mode gleich
 - Maximale Anzeigegröße auf der Website: 140 × 48 px (über `max-h-12 max-w-[140px]`)
 
 ## Dateien und Verwendung
