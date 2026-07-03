@@ -1,0 +1,99 @@
+---
+interface FeedItem {
+  title: string
+  link: string
+}
+
+const FEED_URL = 'https://www.erneuerbareenergien.de/rss_feed/ere-rss-feed-meldungen'
+const SOURCE_URL = 'https://www.erneuerbareenergien.de'
+const MAX_ITEMS = 8
+
+function decodeEntities(text: string) {
+  return text
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#0?39;/g, "'")
+}
+
+let items: FeedItem[] = []
+
+try {
+  const res = await fetch(FEED_URL)
+  if (res.ok) {
+    const xml = await res.text()
+    const blocks = xml.match(/<item>[\s\S]*?<\/item>/g) ?? []
+    items = blocks
+      .map(block => {
+        const titleMatch = block.match(/<title>\s*(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?\s*<\/title>/)
+        const linkMatch = block.match(/<link>\s*([\s\S]*?)\s*<\/link>/)
+        const title = titleMatch?.[1] ? decodeEntities(titleMatch[1].trim()) : undefined
+        const link = linkMatch?.[1]?.trim()
+        return title && link ? { title, link } : null
+      })
+      .filter((item): item is FeedItem => item !== null)
+      .slice(0, MAX_ITEMS)
+  }
+} catch {
+  items = []
+}
+---
+
+{
+  items.length > 0 && (
+    <div class="py-3">
+      <div
+        class="group relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_4%,black_96%,transparent)]"
+        aria-label="Aktuelle Meldungen aus der Energiebranche"
+      >
+        <div class="ticker-track flex w-max items-center motion-reduce:w-full motion-reduce:overflow-x-auto motion-reduce:[animation:none]">
+          {[0, 1].map(copy => (
+            <div
+              class="flex shrink-0 items-center motion-reduce:last:hidden"
+              aria-hidden={copy === 1 ? 'true' : undefined}
+            >
+              {items.map(item => (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  tabindex={copy === 1 ? -1 : 0}
+                  class="mx-4 shrink-0 whitespace-nowrap text-sm text-slate-200/90 transition hover:text-sky-300"
+                >
+                  <span class="mr-2 text-sky-400" aria-hidden="true">
+                    ●
+                  </span>
+                  {item.title}
+                </a>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      <p class="mt-2 text-[11px] tracking-wide text-slate-400/80">
+        Quelle:{' '}
+        <a href={SOURCE_URL} target="_blank" rel="noreferrer" class="underline decoration-slate-500 underline-offset-2 hover:text-slate-300">
+          erneuerbareenergien.de
+        </a>
+      </p>
+    </div>
+  )
+}
+
+<style is:global>
+  @keyframes ctnet-ticker-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .ticker-track {
+    animation: ctnet-ticker-scroll 50s linear infinite;
+  }
+  .group:hover .ticker-track {
+    animation-play-state: paused;
+  }
+</style>

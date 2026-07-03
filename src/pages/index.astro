@@ -1,9 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro'
 import Icon from '../components/Icon.astro'
+import NewsTicker from '../components/NewsTicker.astro'
 import PartnerLogos from '../components/PartnerLogos.astro'
 import { partnerLogos } from '../data/partners'
 import { services } from '../data/services'
+import Layout from '../layouts/Layout.astro'
 
 const processSteps = [
   {
@@ -18,11 +19,13 @@ const processSteps = [
   },
   {
     title: 'Angebotsprüfung',
-    description: 'Sie prüfen das Angebot in Ruhe. Rückfragen beantworten wir kompetent und persönlich – jederzeit.'
+    description:
+      'Sie prüfen das Angebot in Ruhe. Rückfragen beantworten wir kompetent und persönlich – jederzeit.'
   },
   {
     title: 'Schriftliche Auftragsbestätigung',
-    description: 'Nach Ihrer Freigabe bestätigen wir den Auftrag verbindlich und nachvollziehbar dokumentiert.'
+    description:
+      'Nach Ihrer Freigabe bestätigen wir den Auftrag verbindlich und nachvollziehbar dokumentiert.'
   },
   {
     title: 'Anzahlung',
@@ -45,46 +48,67 @@ const processSteps = [
 <Layout>
   <main class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
     <section class="relative isolate overflow-hidden">
-      <div class="absolute inset-0 -z-20">
+      <div class="absolute inset-0 -z-20 bg-slate-950">
         <img
-          src="/Hintergrund.svg"
+          src="/startseite-poster.jpg"
           alt=""
           aria-hidden="true"
           class="h-full w-full object-cover object-center"
           loading="eager"
           decoding="async"
         />
+        <video
+          class="absolute inset-0 h-full w-full object-cover object-center motion-reduce:hidden"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="/startseite-poster.jpg"
+          aria-hidden="true"
+        >
+          <source src="/startseite.mp4" type="video/mp4" />
+        </video>
       </div>
       <div
         class="absolute inset-0 -z-10 bg-[linear-gradient(108deg,rgba(2,6,23,0.84)_12%,rgba(2,6,23,0.56)_46%,rgba(2,6,23,0.86)_100%)]"
       >
       </div>
-      <div class="mx-auto flex min-h-[78svh] w-full max-w-7xl items-center px-6 py-24 sm:px-8 lg:px-12">
-        <div class="max-w-3xl space-y-8">
+      <div
+        class="mx-auto flex min-h-[74svh] w-full max-w-7xl items-center px-6 pb-10 pt-24 sm:px-8 lg:px-12"
+      >
+        <div class="max-w-2xl space-y-6">
           <p
             class="inline-flex rounded-full border border-sky-300/40 bg-sky-500/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-sky-100"
           >
             Smart, Stable, Powerful, Since 2009
           </p>
-          <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-            CT-Netware – Informations- & Elektrotechnik Pleißner.
-          </h1>
-          <p class="max-w-2xl text-base leading-relaxed text-slate-100 sm:text-lg">
-            Ihr starker Partner in allen Fragen zu IT, Elektroinstallation und erneuerbarer
-            Energie in Leipzig, Umgebung und sogar weit darüber hinaus. Bundesweit im Einsatz
-            bieten wir Ihnen kompetente Planung und individuelle Lösungen für Ihre Projekte.
+          <div class="space-y-2">
+            <h1
+              class="text-6xl font-extrabold leading-none tracking-tight text-white drop-shadow-[0_6px_28px_rgba(2,6,23,0.65)] sm:text-7xl lg:text-8xl"
+            >
+              CT-Netware
+            </h1>
+            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-200">
+              Informations- &amp; Elektrotechnik Pleißner
+            </p>
+          </div>
+          <p class="max-w-lg text-base leading-relaxed text-slate-100 sm:text-lg">
+            IT, Elektroinstallation und erneuerbare Energie aus einer Hand – bundesweit im Einsatz.
           </p>
-          <div class="flex flex-wrap items-center gap-4">
+          <div>
             <a
               href="/kontakt?meeting=1"
-              class="inline-flex items-center justify-center rounded-full bg-sky-500 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-[0_16px_40px_rgba(14,165,233,0.45)] transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+              class="inline-flex items-center justify-center rounded-full bg-sky-500 px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-[0_16px_40px_rgba(14,165,233,0.45)] transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             >
               Gesprächstermin vereinbaren
             </a>
-            <span class="text-sm uppercase tracking-[0.14em] text-slate-200/95">
-              Planung · Montage · Betreuung
-            </span>
           </div>
+        </div>
+      </div>
+      <div class="relative border-t border-white/10 bg-slate-950/55 backdrop-blur-sm">
+        <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+          <NewsTicker />
         </div>
       </div>
     </section>
@@ -94,13 +118,15 @@ const processSteps = [
         <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300">
           Dienstleistungen
         </p>
-        <h2 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl">
+        <h2
+          class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl"
+        >
           Eine Hand. Sechs starke Bereiche.
         </h2>
         <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">
-          Von der intelligenten Gebäudesteuerung bis zur sauberen Elektroinstallation – alle
-          Gewerke greifen bei uns sauber ineinander. Sie haben einen Ansprechpartner, der das
-          Ganze versteht.
+          Von der intelligenten Gebäudesteuerung bis zur sauberen Elektroinstallation – alle Gewerke
+          greifen bei uns sauber ineinander. Sie haben einen Ansprechpartner, der das Ganze
+          versteht.
         </p>
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -110,9 +136,7 @@ const processSteps = [
               href={service.href}
               class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_38px_rgba(15,23,42,0.08)] transition hover:-translate-y-1 hover:border-sky-300 hover:shadow-[0_22px_45px_rgba(14,165,233,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 dark:border-slate-800 dark:bg-slate-900/85 dark:hover:border-sky-500/70"
             >
-              <div
-                class="absolute right-5 top-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 ring-1 ring-inset ring-sky-500/20 dark:bg-sky-400/10 dark:text-sky-300 dark:ring-sky-400/30"
-              >
+              <div class="absolute right-5 top-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 ring-1 ring-inset ring-sky-500/20 dark:bg-sky-400/10 dark:text-sky-300 dark:ring-sky-400/30">
                 <Icon name={service.icon} class="h-5 w-5" />
               </div>
               <h3 class="text-2xl font-semibold text-slate-900 transition group-hover:text-sky-600 dark:text-slate-50 dark:group-hover:text-sky-300">
@@ -138,40 +162,63 @@ const processSteps = [
       heading="Bewährte Marken – für Lösungen, denen Sie vertrauen können."
       intro="Ob Smart Home, Photovoltaik, IT oder Elektroinstallation: Wir setzen auf Komponenten namhafter Hersteller und zuverlässige Fachlieferanten. Das spüren Sie in Qualität, Sicherheit und langfristiger Wertbeständigkeit Ihrer Anlage."
       logos={partnerLogos}
+      trailingNote="und viele mehr"
     />
 
-    <section class="relative isolate overflow-hidden border-y border-slate-200 bg-white py-20 dark:border-slate-800 dark:bg-slate-900/40">
+    <section
+      class="relative isolate overflow-hidden border-y border-slate-200 bg-white py-20 dark:border-slate-800 dark:bg-slate-900/40"
+    >
       <div
         class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_10%_20%,rgba(14,165,233,0.16),transparent_42%),radial-gradient(circle_at_94%_82%,rgba(251,191,36,0.14),transparent_40%)]"
       >
       </div>
       <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <div class="mb-12 max-w-3xl space-y-4">
-          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300">
+          <p
+            class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300"
+          >
             Transparentes Vorgehen für Ihr Vorhaben
           </p>
-          <h2 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl">
+          <h2
+            class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl"
+          >
             Von der ersten Anfrage bis zur klaren Umsetzung
           </h2>
         </div>
-        <ol class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {
-            processSteps.map((step, index) => (
-              <li class="rounded-2xl border border-slate-200 bg-slate-50/85 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/80">
-                <div class="mb-3 flex items-center gap-3">
-                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-500 text-xs font-bold text-slate-950">
-                    {index + 1}
-                  </span>
-                  <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                    Schritt {index + 1}
-                  </span>
-                </div>
-                <p class="text-sm font-semibold leading-snug text-slate-800 dark:text-slate-100">{step.title}</p>
-                <p class="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{step.description}</p>
-              </li>
-            ))
-          }
-        </ol>
+        <div class="grid gap-5 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:items-stretch">
+          <ol class="grid gap-5 md:grid-cols-2">
+            {
+              processSteps.map((step, index) => (
+                <li class="rounded-2xl border border-slate-200 bg-slate-50/85 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/80">
+                  <p class="text-sm font-semibold leading-snug text-slate-800 dark:text-slate-100">
+                    {step.title}
+                  </p>
+                  <div class="mt-3 mb-3 flex items-center gap-3">
+                    <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-500 text-xs font-bold text-slate-950">
+                      {index + 1}
+                    </span>
+                    <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                      Schritt {index + 1}
+                    </span>
+                  </div>
+                  <p class="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                    {step.description}
+                  </p>
+                </li>
+              ))
+            }
+          </ol>
+          <figure
+            class="min-h-64 overflow-hidden rounded-2xl border border-slate-200 shadow-sm dark:border-slate-700"
+          >
+            <img
+              src="/vorgehensweise.jpg"
+              alt="Photovoltaikanlage im Sonnenuntergang"
+              loading="lazy"
+              class="h-full w-full object-cover"
+            />
+          </figure>
+        </div>
         <div class="mt-12">
           <a
             href="/kontakt?meeting=1"
