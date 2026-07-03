@@ -5,9 +5,19 @@ interface Props {
   lead: string
   reason: string
   ctaLabel?: string
+  image?: string
+  imageAlt?: string
 }
 
-const { eyebrow, title, lead, reason, ctaLabel = 'Gesprächstermin vereinbaren' } = Astro.props
+const {
+  eyebrow,
+  title,
+  lead,
+  reason,
+  ctaLabel = 'Gesprächstermin vereinbaren',
+  image,
+  imageAlt = ''
+} = Astro.props
 const ctaHref = `/kontakt?reason=${reason}&meeting=1`
 ---
 
@@ -24,33 +34,55 @@ const ctaHref = `/kontakt?reason=${reason}&meeting=1`
   </div>
 
   <div class="mx-auto w-full max-w-7xl px-6 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
-    <div class="max-w-3xl space-y-6">
-      <p
-        class="inline-flex items-center rounded-full border border-sky-200 bg-sky-50/80 px-4 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-sky-700 dark:border-sky-300/30 dark:bg-sky-500/10 dark:text-sky-300"
-      >
-        {eyebrow}
-      </p>
-      <h1
-        class="text-4xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-slate-50"
-      >
-        {title}
-      </h1>
-      <p class="max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-300">
-        {lead}
-      </p>
-      <div class="flex flex-wrap items-center gap-4 pt-2">
-        <a
-          href={ctaHref}
-          class="inline-flex items-center justify-center rounded-full bg-sky-500 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-[0_16px_40px_rgba(14,165,233,0.45)] transition hover:-translate-y-0.5 hover:bg-sky-400 hover:shadow-[0_18px_45px_rgba(14,165,233,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:focus-visible:ring-offset-slate-950"
+    <div
+      class:list={[
+        image ? 'grid items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16' : ''
+      ]}
+    >
+      <div class:list={[image ? 'space-y-6' : 'max-w-3xl space-y-6']}>
+        <p
+          class="inline-flex items-center rounded-full border border-sky-200 bg-sky-50/80 px-4 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-sky-700 dark:border-sky-300/30 dark:bg-sky-500/10 dark:text-sky-300"
         >
-          {ctaLabel}
-        </a>
-        <span
-          class="text-xs font-medium uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400"
+          {eyebrow}
+        </p>
+        <h1
+          class="text-4xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-slate-50"
         >
-          Smart, Stable, Powerful, Since 2009
-        </span>
+          {title}
+        </h1>
+        <p class="max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-300">
+          {lead}
+        </p>
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a
+            href={ctaHref}
+            class="inline-flex items-center justify-center rounded-full bg-sky-500 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-[0_16px_40px_rgba(14,165,233,0.45)] transition hover:-translate-y-0.5 hover:bg-sky-400 hover:shadow-[0_18px_45px_rgba(14,165,233,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:focus-visible:ring-offset-slate-950"
+          >
+            {ctaLabel}
+          </a>
+          <span
+            class="text-xs font-medium uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400"
+          >
+            Smart, Stable, Powerful, Since 2009
+          </span>
+        </div>
       </div>
+
+      {
+        image && (
+          <div class="order-first lg:order-last">
+            <img
+              src={image}
+              alt={imageAlt}
+              width="1600"
+              height="1066"
+              loading="eager"
+              fetchpriority="high"
+              class="h-auto w-full rounded-3xl object-cover shadow-[0_24px_60px_rgba(15,23,42,0.18)] max-h-70 sm:max-h-90 lg:max-h-110"
+            />
+          </div>
+        )
+      }
     </div>
   </div>
 </section>
