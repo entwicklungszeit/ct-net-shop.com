@@ -101,23 +101,31 @@ const equipmentFeatures = [
         <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12">
           <div class="space-y-6">
             <img
-              src="/drohnenflug/ctn-skyeye.png"
+              src="/drohnenflug/skyeye.png"
               alt="SKYEYE – Powered by Yuneec"
               class="h-auto w-full max-w-md"
               width="640"
-              height="200"
+              height="90"
             />
-            <p
-              class="inline-flex items-center rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-cyan-300"
-            >
-              Drohnendienstleistungen
-            </p>
+            <div class="flex flex-wrap items-center gap-3">
+              <p
+                class="inline-flex items-center rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-cyan-300"
+              >
+                Drohnendienstleistungen
+              </p>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1">
+                <span class="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Powered by
+                </span>
+                <img src="/partners/yuneec.svg" alt="Yuneec" class="h-3.5 w-auto" width="88" height="14" />
+              </span>
+            </div>
             <h1 class="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
               We fly your mission.
             </h1>
             <p class="max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
               Professionelle Luftaufnahmen aus einer Hand – Picture2Fly, Video2Fly, Measurement2Fly
-              und Hot2Fly für Immobilien, Gebäude und Projekte. Powered by Yuneec.
+              und Hot2Fly für Immobilien, Gebäude und Projekte.
             </p>
             <div class="flex flex-wrap items-center gap-4 pt-2">
               <a
@@ -134,20 +142,24 @@ const equipmentFeatures = [
 
           <div class="relative flex items-end justify-center lg:justify-end">
             <img
-              src="/drohnenflug/drone-black.png"
+              src="/drohnenflug/typhoon-h.png"
               alt="Yuneec Typhoon H Hexacopter"
               class="relative z-10 max-h-[320px] w-auto object-contain sm:max-h-[380px]"
-              width="600"
-              height="400"
+              width="1024"
+              height="576"
             />
-            <img
-              src="/drohnenflug/fliegerlady.png"
-              alt="CTN Fliegerin mit Logo"
-              class="absolute -bottom-4 -left-4 z-20 hidden max-h-[280px] w-auto object-contain sm:block lg:-left-8"
-              width="320"
-              height="400"
-              loading="lazy"
-            />
+            <div
+              class="absolute -bottom-6 -left-4 z-20 hidden w-40 overflow-hidden rounded-2xl border border-white/10 shadow-[0_20px_45px_rgba(0,0,0,0.55)] sm:block lg:-left-8 lg:w-48"
+            >
+              <img
+                src="/drohnenflug/fliegerlady.jpg"
+                alt="CTN Pilotin mit SKYEYE-Logo"
+                class="h-auto w-full object-cover"
+                width="1400"
+                height="840"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>

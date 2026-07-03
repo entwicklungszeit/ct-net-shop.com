@@ -69,10 +69,10 @@ const gridClass =
         tiers.map(tier => (
           <article
             class:list={[
-              'relative flex flex-col overflow-hidden rounded-3xl border bg-white p-8 shadow-[0_18px_38px_rgba(15,23,42,0.08)] transition dark:bg-slate-900/85 dark:shadow-[0_18px_38px_rgba(2,6,23,0.5)]',
+              'relative flex flex-col overflow-hidden rounded-3xl border bg-white p-8 shadow-[0_18px_38px_rgba(15,23,42,0.08)] transition dark:bg-slate-800 dark:shadow-[0_18px_38px_rgba(2,6,23,0.5)]',
               tier.highlighted
                 ? 'border-cyan-400/60 ring-2 ring-cyan-400/30 lg:-translate-y-1 lg:scale-[1.02]'
-                : 'border-slate-200 dark:border-slate-800'
+                : 'border-slate-200 dark:border-slate-700'
             ]}
           >
             {tier.highlighted && (
@@ -99,7 +99,7 @@ const gridClass =
                   </span>
                 )
               }
-              <h3 class="text-2xl font-semibold text-slate-900 dark:text-slate-50">
+              <h3 class="min-w-0 flex-1 break-words text-2xl font-semibold text-slate-900 dark:text-slate-50">
                 {tier.title}
               </h3>
             </div>
@@ -133,7 +133,7 @@ const gridClass =
               }
             </ul>
 
-            <div class="mt-8 border-t border-slate-200 pt-6 dark:border-slate-800">
+            <div class="mt-8 min-h-18 border-t border-slate-200 pt-6 dark:border-slate-700">
               <p
                 class:list={[
                   'text-3xl font-semibold tracking-tight',
@@ -152,10 +152,10 @@ const gridClass =
             <a
               href={ctaHref}
               class:list={[
-                'mt-6 inline-flex items-center justify-center rounded-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900',
+                'mt-6 inline-flex items-center justify-center rounded-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800',
                 tier.highlighted
                   ? 'bg-cyan-400 text-slate-950 shadow-[0_14px_36px_rgba(34,211,238,0.45)] hover:-translate-y-0.5 hover:bg-cyan-300 focus-visible:ring-cyan-300'
-                  : 'border border-slate-300 bg-white text-slate-900 hover:border-cyan-400 hover:text-cyan-700 focus-visible:ring-cyan-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-cyan-500/70 dark:hover:text-cyan-300'
+                  : 'border border-slate-300 bg-white text-slate-900 hover:border-cyan-400 hover:text-cyan-700 focus-visible:ring-cyan-400 dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-100 dark:hover:border-cyan-500/70 dark:hover:text-cyan-300'
               ]}
             >
               {ctaLabel}
