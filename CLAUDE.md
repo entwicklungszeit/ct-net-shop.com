@@ -1,4 +1,4 @@
-# AGENTS.md
+# CLAUDE.md
 
 ## Project Context
 
@@ -6,6 +6,12 @@
 - It offers for IT- and electronic services
 - Slogan: Smart, Stable, Powerful, Since 2009
 - The website is in German
+
+## Astro.js
+
+### Health endpoint
+
+The dev server exposes a `/_astro/status` endpoint that returns `{"ok": true}` as JSON. This allows agents and other tools to check programmatically whether the dev server is ready to accept requests. This endpoint is only available in the dev server and does not exist in production builds.
 
 ## CT-Net
 
