@@ -23,7 +23,12 @@ In diesem Ordner liegen die offiziellen Partner- und Hersteller-Logos, die auf d
 | `corsair.svg`    | `/it`                              | Corsair                         |
 | `dlink.svg`      | `/it`                              | D-Link                          |
 | `microsoft.svg`  | `/it`                              | Microsoft                       |
-| `wuerth.svg`     | `/it`, `/elektroinstallation`      | Würth                           |
+| `synology.svg`   | `/it`                              | Synology                        |
+| `qnap.svg`       | `/it`                              | QNAP                            |
+| `western-digital.svg` | `/it`                          | Western Digital                 |
+| `siteco.svg`     | `/it`                              | Siteco                          |
+| `hp.svg`         | `/it`                              | HP                               |
+| `wuerth.svg`     | `/elektroinstallation`             | Würth                           |
 | `hager.svg`      | `/elektroinstallation`             | Hager                           |
 
 Die **Startseite** (`/`) zeigt alle Logos in einer Partner-Sektion (Liste in [`src/data/partners.ts`](../../src/data/partners.ts)).
