@@ -25,7 +25,7 @@ export const services: Service[] = [
   {
     title: 'Wärmepumpe',
     href: '/waermepumpe',
-    icon: 'schneeflocke',
+    icon: 'temperatur',
     description:
       'Elektrischer Anschluss, Anmeldung beim Energieversorger und PV-Kopplung – sauber abgestimmt mit Ihrem Heizungsbauer.'
   },

@@ -31,6 +31,7 @@ export const iconSlugs = [
   'uhr',
   'wechselrichter',
   'wertsteigerung',
+  'wifi',
   'zahnrad',
   'zukunft'
 ] as const
@@ -70,6 +71,7 @@ export const iconLabels: Record<IconSlug, string> = {
   uhr: 'Zeitplan',
   wechselrichter: 'Wechselrichter',
   wertsteigerung: 'Wertsteigerung',
+  wifi: 'SAT/TV-Empfang',
   zahnrad: 'Materialbeschaffung',
   zukunft: 'Zukunftssicherheit'
 }

@@ -10,25 +10,33 @@ const completePackage = [
     icon: 'wechselrichter',
     title: 'Photovoltaik & Wechselrichter',
     description:
-      'Wandeln Sie Sonnenlicht hocheffizient in nutzbaren Strom um – und verbrauchen Sie ihn direkt dort, wo er entsteht.'
+      'Wandeln Sie Sonnenlicht hocheffizient in nutzbaren Strom um – und verbrauchen Sie ihn direkt dort, wo er entsteht.',
+    image: '/photovoltaik/panele-dach.jpg',
+    imageAlt: 'Photovoltaik-Module auf einem Dach'
   },
   {
     icon: 'batterie',
     title: 'Batteriespeicher',
     description:
-      'Nutzen Sie Ihre Solarenergie flexibel – auch nach Sonnenuntergang. So maximieren Sie Ihre Eigenverbrauchsquote spürbar.'
+      'Nutzen Sie Ihre Solarenergie flexibel – auch nach Sonnenuntergang. So maximieren Sie Ihre Eigenverbrauchsquote spürbar.',
+    image: '/photovoltaik/speicher.jpg',
+    imageAlt: 'Batteriespeicher für Solarenergie'
   },
   {
     icon: 'auto-laden-sonne',
     title: 'E-Ladestation (Wallbox)',
     description:
-      'Laden Sie Ihr Elektrofahrzeug bequem, schnell und klimaschonend mit eigenem Sonnenstrom – direkt vor der Haustür.'
+      'Laden Sie Ihr Elektrofahrzeug bequem, schnell und klimaschonend mit eigenem Sonnenstrom – direkt vor der Haustür.',
+    image: '/photovoltaik/laden.jpg',
+    imageAlt: 'E-Auto an einer Wallbox beim Laden'
   },
   {
     icon: 'energiemanagement',
     title: 'Energiemanager & App',
     description:
-      'Behalten Sie die volle Kontrolle. Steuern und verteilen Sie Ihre Energie effizient per App und senken Sie Ihre Kosten spürbar.'
+      'Behalten Sie die volle Kontrolle. Steuern und verteilen Sie Ihre Energie effizient per App und senken Sie Ihre Kosten spürbar.',
+    image: '/photovoltaik/management.jpg',
+    imageAlt: 'Energiemanagement per App überwachen'
   }
 ]
 
@@ -135,7 +143,7 @@ const trustReasons = [
           <div class="space-y-2">
             <div class="flex items-center gap-3">
               <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/15 text-amber-800 ring-1 ring-inset ring-amber-500/25 dark:bg-amber-400/10 dark:text-amber-300 dark:ring-amber-400/30">
-                <Icon name="schneeflocke" class="h-5 w-5" />
+                <Icon name="temperatur" class="h-5 w-5" />
               </span>
               <p
                 class="text-xs font-semibold uppercase tracking-[0.24em] text-amber-700 dark:text-amber-300"
@@ -177,7 +185,11 @@ const trustReasons = [
       logos={[
         { src: '/partners/sma.svg', alt: 'SMA Solar Technology', label: 'SMA' },
         { src: '/partners/huawei.svg', alt: 'Huawei FusionSolar', label: 'Huawei' },
-        { src: '/partners/lg.svg', alt: 'LG Energy Solution', label: 'LG' }
+        { src: '/partners/lg.svg', alt: 'LG Energy Solution', label: 'LG' },
+        { src: '/partners/trina.svg', alt: 'Trina Solar', label: 'Trina' },
+        { src: '/partners/astronergy.svg', alt: 'Astronergy', label: 'Astronergy' },
+        { src: '/partners/jinko.svg', alt: 'Jinko Solar', label: 'Jinko' },
+        { src: '/partners/phoenix.svg', alt: 'Phoenix Contact', label: 'Phoenix' }
       ]}
     />
 
