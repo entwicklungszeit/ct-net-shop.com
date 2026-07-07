@@ -442,7 +442,37 @@ const thankYouUrl = new URL('/kontakt/danke/', Astro.site).href
     </section>
   </main>
 
+  <script
+    src="https://www.google.com/recaptcha/api.js?render=6LdkkEgtAAAAAD6u69CxE_yAtoHMAlqH0poM-ro4"
+    async
+    defer></script>
   <script>
+    declare const grecaptcha: any
+    const form = document.querySelector('form')
+    if (form) {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault()
+        const token: string = await new Promise((resolve) => {
+          grecaptcha.ready(() => {
+            grecaptcha
+              .execute('6LdkkEgtAAAAAD6u69CxE_yAtoHMAlqH0poM-ro4', { action: 'contact' })
+              .then(resolve)
+          })
+        })
+        const data = new FormData(form)
+        data.append('g-recaptcha-response', token)
+        const nextUrl = (form.querySelector('input[name="_next"]') as HTMLInputElement)?.value
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' },
+        })
+        if (response.ok && nextUrl) {
+          window.location.href = nextUrl
+        }
+      })
+    }
+
     // Pre-fill the contact form based on URL query params (?reason=...&meeting=1).
     const params = new URLSearchParams(window.location.search)
     const reason = params.get('reason')
