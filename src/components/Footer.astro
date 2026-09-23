@@ -5,6 +5,8 @@ type FooterLink = {
   ariaLabel?: string
 }
 
+const companyLinks: FooterLink[] = [{ label: 'Karriere', href: '/karriere' }]
+
 const legalLinks: FooterLink[] = [{ label: 'Impressum', href: '/impressum' }]
 
 // Placeholder for future social media accounts.
@@ -18,6 +20,20 @@ const socialLinks: FooterLink[] = []
     class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-8 text-sm text-slate-600 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8 dark:text-slate-300"
   >
     <p class="text-xs sm:text-sm">Smart, Stable, Powerful, Since 2009</p>
+
+    <nav aria-label="Unternehmen" class="flex flex-wrap items-center gap-4 sm:gap-6">
+      {
+        companyLinks.map(link => (
+          <a
+            href={link.href}
+            aria-label={link.ariaLabel ?? link.label}
+            class="font-medium text-slate-700 transition-colors hover:text-sky-600 dark:text-slate-200 dark:hover:text-sky-400"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
 
     <nav aria-label="Rechtliches" class="flex flex-wrap items-center gap-4 sm:gap-6">
       {

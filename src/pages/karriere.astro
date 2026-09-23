@@ -1,0 +1,301 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Icon from '../components/Icon.astro'
+
+interface Job {
+  title: string
+  meta: string
+  description: string
+  requirements: string[]
+}
+
+const jobs: Job[] = [
+  {
+    title: 'Elektromeister (m/w/d)',
+    meta: 'Vollzeit · Festanstellung',
+    description:
+      'Als Elektromeister bei CT-Netware übernimmst du die fachliche und organisatorische Leitung unserer Elektroinstallationsprojekte – von der Planung über die Bauleitung bis zur Abnahme. Du sorgst dafür, dass jede Installation exakt nach Norm, sauber dokumentiert und in der von unseren Kunden erwarteten Qualität umgesetzt wird, führst dein Team fachlich an und stehst mit deiner Meisterprüfung für unser Qualitätsversprechen ein.',
+    requirements: [
+      'Abgeschlossene Meisterprüfung im Elektrohandwerk',
+      'Mehrjährige Berufserfahrung, idealerweise mit Projekt- oder Bauleitungserfahrung',
+      'Sicherer Umgang mit VDE-Normen und aktuellen Vorschriften',
+      'Hoher eigener Anspruch an Sauberkeit, Genauigkeit und Dokumentation',
+      'Führerschein Klasse B'
+    ]
+  },
+  {
+    title: 'Elektriker / Elektroinstallateur (m/w/d)',
+    meta: 'Vollzeit · Festanstellung',
+    description:
+      'Als Elektriker/-in bzw. Elektroinstallateur/-in führst du Elektroinstallationen in Neubau, Sanierung und Gewerbe eigenständig und nach Plan aus – von der Verkabelung über die Schaltschrankmontage bis zur Inbetriebnahme. Du arbeitest präzise, hältst dich an Vorgaben und Normen und lieferst eine Ausführungsqualität, mit der wir gegenüber unseren Kunden jederzeit geradestehen können.',
+    requirements: [
+      'Abgeschlossene Ausbildung als Elektriker/-in bzw. Elektroinstallateur/-in oder vergleichbare Qualifikation',
+      'Berufserfahrung wünschenswert – gut ausgebildete Berufseinsteiger sind willkommen',
+      'Grundkenntnisse der VDE-Normen und geltenden Vorschriften',
+      'Sorgfältige, genaue Arbeitsweise – für Pfusch ist bei uns kein Platz',
+      'Führerschein Klasse B'
+    ]
+  }
+]
+
+function applyMailto(jobTitle: string) {
+  const subject = `Bewerbung: ${jobTitle}`
+  const body = `Guten Tag,\n\nim Anhang finden Sie meine Bewerbungsunterlagen (Lebenslauf, Abschlüsse, Zeugnisse) für die Stelle als ${jobTitle}.\n\n`
+  return `mailto:info@ct-net-shop.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+}
+
+const initiativeMailto = `mailto:info@ct-net-shop.com?subject=${encodeURIComponent('Initiativbewerbung')}&body=${encodeURIComponent('Guten Tag,\n\nim Anhang finden Sie meine Bewerbungsunterlagen (Lebenslauf, Abschlüsse, Zeugnisse).\n\n')}`
+---
+
+<Layout>
+  <main class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <!-- Hero -->
+    <section class="relative isolate overflow-hidden border-b border-slate-200 dark:border-slate-800">
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_22%,rgba(56,189,248,0.18),transparent_55%),radial-gradient(circle_at_88%_78%,rgba(251,191,36,0.14),transparent_50%)] dark:bg-[radial-gradient(circle_at_18%_22%,rgba(56,189,248,0.22),transparent_55%),radial-gradient(circle_at_88%_78%,rgba(129,140,248,0.18),transparent_55%)]"
+      >
+      </div>
+
+      <div class="mx-auto w-full max-w-7xl px-6 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
+        <div class="max-w-3xl space-y-6">
+          <p
+            class="inline-flex items-center rounded-full border border-sky-200 bg-sky-50/80 px-4 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-sky-700 dark:border-sky-300/30 dark:bg-sky-500/10 dark:text-sky-300"
+          >
+            Karriere bei CT-Netware
+          </p>
+          <h1
+            class="text-4xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-slate-50"
+          >
+            Elektrotechnik mit echtem Qualitätsanspruch – gesucht: dein Handwerk.
+          </h1>
+          <p class="max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-300">
+            Wir versprechen unseren Kunden ein sehr hohes Leistungsniveau – und lösen dieses
+            Versprechen bei jeder Installation ein. Dafür suchen wir Menschen, die genauso
+            präzise, sauber und verlässlich arbeiten wie wir es unseren Kunden zusagen.
+          </p>
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a
+              href="#stellen"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-sky-500 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-[0_16px_40px_rgba(14,165,233,0.45)] transition hover:-translate-y-0.5 hover:bg-sky-400 hover:shadow-[0_18px_45px_rgba(14,165,233,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:focus-visible:ring-offset-slate-950"
+            >
+              Offene Stellen ansehen
+            </a>
+            <a
+              href={initiativeMailto}
+              data-recaptcha-mailto
+              class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-700 transition hover:border-sky-400 hover:text-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500/70 dark:hover:text-sky-300"
+            >
+              Initiativ bewerben
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quality statement -->
+    <section class="relative isolate overflow-hidden py-20 sm:py-24">
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-slate-900 via-sky-900 to-slate-950"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.3),transparent_55%),radial-gradient(circle_at_85%_75%,rgba(251,191,36,0.16),transparent_50%)]"
+      >
+      </div>
+      <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div class="max-w-2xl space-y-4">
+          <p
+            class="inline-flex items-center rounded-full border border-sky-300/30 bg-sky-500/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-sky-200"
+          >
+            Unser Anspruch
+          </p>
+          <h2 class="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
+            Du machst bei Qualität auch keine Kompromisse?
+          </h2>
+          <p class="text-base leading-relaxed text-slate-300">
+            Unsere Kunden verlassen sich auf ein sehr hohes Wertversprechen von CT-Netware – und
+            genau das lösen wir bei jeder einzelnen Installation ein. Deshalb erwarten wir von
+            jedem im Team makellose Ausführung, exakte Dokumentation und den Anspruch, es beim
+            ersten Mal richtig zu machen. Wer bei uns anfängt, teilt diesen Anspruch an Qualität
+            und Genauigkeit von Tag eins an.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open positions -->
+    <section class="border-y border-slate-200 bg-slate-50 py-20 sm:py-24 dark:border-slate-800 dark:bg-slate-900/40" id="stellen">
+      <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div class="mb-12 max-w-2xl space-y-3">
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300">
+            Offene Stellen
+          </p>
+          <h2 class="text-balance text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50">
+            Zwei Positionen, ein Anspruch.
+          </h2>
+          <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">
+            Beide Stellen sind unbefristet in Festanstellung zu besetzen. Bewirb dich direkt über
+            den Button in der jeweiligen Ausschreibung.
+          </p>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-2">
+          {
+            jobs.map(job => (
+              <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.06)] dark:border-slate-800 dark:bg-slate-900 dark:shadow-[0_18px_40px_rgba(2,6,23,0.5)]">
+                <div class="space-y-1">
+                  <span class="text-xs font-semibold uppercase tracking-[0.2em] text-sky-600 dark:text-sky-300">
+                    {job.meta}
+                  </span>
+                  <h3 class="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl dark:text-slate-50">
+                    {job.title}
+                  </h3>
+                </div>
+                <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                  {job.description}
+                </p>
+                <div>
+                  <p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                    Mindestanforderungen
+                  </p>
+                  <ul class="space-y-3">
+                    {job.requirements.map(req => (
+                      <li class="flex gap-3 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                        <span
+                          class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-500/10 text-xs text-sky-600 dark:text-sky-300"
+                          aria-hidden="true"
+                        >
+                          ✓
+                        </span>
+                        {req}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <a
+                  href={applyMailto(job.title)}
+                  data-recaptcha-mailto
+                  class="mt-auto inline-flex items-center justify-center gap-2 rounded-full bg-sky-500 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-[0_14px_36px_rgba(14,165,233,0.4)] transition hover:-translate-y-0.5 hover:bg-sky-400 hover:shadow-[0_16px_40px_rgba(14,165,233,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+                >
+                  Jetzt bewerben
+                  <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
+                </a>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Perspectives -->
+    <section class="py-20 sm:py-24" id="perspektiven">
+      <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-16">
+          <div class="space-y-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300">
+              Perspektiven
+            </p>
+            <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50">
+              Perspektiven, die mit dir wachsen
+            </h2>
+            <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">
+              Neben einer fairen Festanstellung bieten wir dir eine Perspektive über das reine
+              Gehalt hinaus: Bei besonders gut geleisteter Arbeit und entsprechendem
+              Unternehmenserfolg ist eine zusätzliche Prämie möglich.
+            </p>
+            <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">
+              Im Vorfeld verpflichten wir uns dazu bewusst nicht – stattdessen erarbeiten wir
+              gemeinsam mit dir transparent, während deiner Tätigkeit und in regelmäßigen
+              Mitarbeitergesprächen, wie sich dein Beitrag ausgestaltet und auszahlt.
+            </p>
+          </div>
+          <div class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.06)] dark:border-slate-800 dark:bg-slate-900 dark:shadow-[0_18px_40px_rgba(2,6,23,0.5)]">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 ring-1 ring-inset ring-sky-500/20 dark:bg-sky-400/10 dark:text-sky-300 dark:ring-sky-400/30">
+              <Icon name="handschlag" class="h-5 w-5" />
+            </span>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-50">
+              Transparent statt starr
+            </h3>
+            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Keine pauschale Zusage vorab – dafür ein ehrliches, im Mitarbeitergespräch gemeinsam
+              ausgestaltetes Modell, das deine Leistung und den Erfolg des Unternehmens
+              berücksichtigt.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Initiative application CTA -->
+    <section class="relative isolate overflow-hidden py-20 sm:py-24">
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-slate-900 via-sky-900 to-slate-950"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.35),transparent_55%),radial-gradient(circle_at_85%_75%,rgba(251,191,36,0.18),transparent_50%)]"
+      >
+      </div>
+      <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div
+          class="flex flex-col gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm sm:p-12 lg:flex-row lg:items-center lg:justify-between lg:p-14"
+        >
+          <div class="max-w-2xl space-y-4">
+            <p
+              class="inline-flex items-center rounded-full border border-sky-300/30 bg-sky-500/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-sky-200"
+            >
+              Initiativbewerbung
+            </p>
+            <h2 class="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
+              Keine der Stellen passt genau? Bewirb dich trotzdem.
+            </h2>
+            <p class="text-base leading-relaxed text-slate-200">
+              Wenn du unseren Anspruch an Qualität und Genauigkeit teilst, freuen wir uns auch
+              ohne passende Ausschreibung über deine Bewerbung. Der Button öffnet dein
+              E-Mail-Programm – hänge einfach deinen Lebenslauf und deine Abschlüsse an.
+            </p>
+          </div>
+          <div class="flex shrink-0">
+            <a
+              href={initiativeMailto}
+              data-recaptcha-mailto
+              class="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+            >
+              Initiativbewerbung senden
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script
+    src="https://www.google.com/recaptcha/api.js?render=6LdkkEgtAAAAAD6u69CxE_yAtoHMAlqH0poM-ro4"
+    async
+    defer></script>
+  <script>
+    declare const grecaptcha: any
+    const RECAPTCHA_SITE_KEY = '6LdkkEgtAAAAAD6u69CxE_yAtoHMAlqH0poM-ro4'
+
+    document.querySelectorAll<HTMLAnchorElement>('[data-recaptcha-mailto]').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault()
+        const target = link.href
+        grecaptcha.ready(() => {
+          grecaptcha
+            .execute(RECAPTCHA_SITE_KEY, { action: 'bewerbung' })
+            .then((token: string) => {
+              if (token) {
+                window.location.href = target
+              }
+            })
+        })
+      })
+    })
+  </script>
+</Layout>
