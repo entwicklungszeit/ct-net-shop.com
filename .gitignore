@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # ai-helper directories
 .scratch/
+.claude/worktrees/
