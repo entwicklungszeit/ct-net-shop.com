@@ -30,6 +30,7 @@ In diesem Ordner liegen die offiziellen Partner- und Hersteller-Logos, die auf d
 | `hp.svg`         | `/it`                              | HP                               |
 | `wuerth.svg`     | `/elektroinstallation`             | Würth                           |
 | `hager.svg`      | `/elektroinstallation`             | Hager                           |
+| `schaerschmidt.svg` | `/waermepumpe`                  | Schärschmidt (Heizungsbau-Partner, verlinkt) |
 
 Die **Startseite** (`/`) zeigt alle Logos in einer Partner-Sektion (Liste in [`src/data/partners.ts`](../../src/data/partners.ts)).
 

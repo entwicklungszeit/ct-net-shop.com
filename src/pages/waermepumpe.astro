@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import Icon from '../components/Icon.astro'
 import ServiceHero from '../components/ServiceHero.astro'
 import FeatureGrid from '../components/FeatureGrid.astro'
+import PartnerLogos from '../components/PartnerLogos.astro'
 import CtaBanner from '../components/CtaBanner.astro'
 const services = [
   {
@@ -155,6 +156,21 @@ const handoverSteps = [
         </a>
       </div>
     </section>
+
+    <PartnerLogos
+      eyebrow="Partner"
+      heading="Heizungsbau mit Schärschmidt"
+      tone="warm"
+      intro="Für die Heizungsinstallation arbeiten wir eng mit unserem Partner Schärschmidt zusammen. Sie erhalten Heizungstechnik und Elektroinstallation aus einer Hand, mit klar abgestimmten Schnittstellen und Terminen."
+      logos={[
+        {
+          src: '/partners/schaerschmidt.svg',
+          alt: 'Schärschmidt',
+          label: 'Schärschmidt',
+          href: 'https://www.schaerschmidt.de/index.php'
+        }
+      ]}
+    />
 
     <CtaBanner
       reason="waermepumpe"
