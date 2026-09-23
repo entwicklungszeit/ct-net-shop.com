@@ -1,0 +1,78 @@
+---
+import Icon from './Icon.astro'
+
+const badges = [
+  {
+    src: '/partners/tesla-energy-certified-installer.webp',
+    alt: 'Tesla Energy Certified Installer'
+  },
+  {
+    src: '/partners/tesla-powerwall-certified-installer.webp',
+    alt: 'Tesla Powerwall Certified Installer'
+  }
+]
+---
+
+<section class="relative isolate overflow-hidden bg-slate-950 py-20 text-white">
+  <div
+    class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_12%_18%,rgba(56,189,248,0.16),transparent_42%),radial-gradient(circle_at_88%_82%,rgba(251,191,36,0.18),transparent_44%)]"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,transparent_0%,rgba(2,6,23,0.4)_100%)]"
+  >
+  </div>
+
+  <div class="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+    <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+      <div class="space-y-6">
+        <p
+          class="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-amber-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-amber-200"
+        >
+          <Icon name="schild" class="h-3.5 w-3.5" />
+          Offizielle Auszeichnung
+        </p>
+        <h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          Zertifizierter Tesla Partner – in zwei Kategorien
+        </h2>
+        <p class="max-w-xl text-base leading-relaxed text-slate-300">
+          Tesla hat uns als <strong class="font-semibold text-white">Energy Certified Installer</strong>
+          und als <strong class="font-semibold text-white">Powerwall Certified Installer</strong>
+          ausgezeichnet – eine Anerkennung, die nur wenigen Fachbetrieben mit nachgewiesener Qualifikation
+          verliehen wird. Für Sie bedeutet das: fachgerechte Planung und Installation von Photovoltaik-
+          und Stromspeicherlösungen nach den strengen Standards des Herstellers.
+        </p>
+        <div>
+          <a
+            href="/photovoltaik"
+            class="group inline-flex items-center justify-center gap-2 rounded-full bg-sky-500 px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-[0_16px_40px_rgba(14,165,233,0.35)] transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+          >
+            Mehr zu Photovoltaik &amp; Stromspeicher
+            <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-5 sm:flex-row lg:flex-col">
+        {
+          badges.map(badge => (
+            <div class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white p-5 shadow-[0_18px_38px_rgba(2,6,23,0.45)] transition hover:-translate-y-0.5 hover:shadow-[0_22px_45px_rgba(251,191,36,0.25)] sm:flex-1 lg:flex-none">
+              <img
+                src={badge.src}
+                alt={badge.alt}
+                width="203"
+                height="83"
+                loading="lazy"
+                class="h-auto w-full max-w-[190px]"
+              />
+            </div>
+          ))
+        }
+        <p class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-400">
+          <Icon name="handschlag" class="h-4 w-4 text-amber-300" />
+          Ausgezeichnet von Tesla
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
